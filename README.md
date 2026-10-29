@@ -4,7 +4,7 @@ This Github repository contains files for managing a moving image collection usi
 
 ## About
 
-This setup is currently being developed at [Anthology Film Archives](http://www.anthologyfilmarchives.org) for use as a central cataloging database for our moving image collections. The goal is to develop a profile template that follows a two-level hierarchy (Work/Variant and Manifestation/Item) that follows the cataloging standards as described in [The International Federation of Film Archives's](http://fiafnet.org) [Moving Image Cataloguing Manual (2016)](https://www.fiafnet.org/pages/e-resources/cataloguing-manual.html)
+This setup is currently being developed at [Anthology Film Archives](http://www.anthologyfilmarchives.org) for use as a central cataloging database for our moving image collections. The goal is to develop a profile template that follows a two-level hierarchy (Work/Variant and Manifestation/Item) that follows the cataloging standards as described in [The International Federation of Film Archives's](http://fiafnet.org) [Moving Image Cataloguing Manual (2016)](https://www.fiafnet.org/pages/e-resources/cataloguing-manual.html) as closely as possible.
 
 ## Collective Access Installation Profile
 This profile was written for [Collective Access 2.0.11](https://collectiveaccess.org/) (CA). 
