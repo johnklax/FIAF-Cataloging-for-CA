@@ -8,10 +8,10 @@ This setup is currently being developed at [Anthology Film Archives](http://www.
 
 ## Structure
 * __Level 1, Work (object type work):__ title, form, genre, date, country, language, original running time, credits and cast statements, summary, source and notes.
+    *__Variants:__ FIAF’s Variant level is not a separate level. Record a variant as its own Work, linked with the variant relationship on ca_objects_x_objects         
 
 * __Level 2, Manifestation + Item (object type manifestation_item, a child of a Work):__ one record per physical or digital copy. It carries the manifestation data (gauge or carrier, base, colour, sound, aspect ratio, generation, extent, languages, publication and distribution) together with the item data (holding institution, storage location, acquisition, provenance, access, condition, preservation history).
 
-_Variants: FIAF’s Variant level is not a separate level. Record a variant as its own Work, linked with the variant relationship on ca_objects_x_objects_
 
 ## Collective Access Installation Profile
 This profile was written for [Collective Access 2.0.11](https://collectiveaccess.org/) (CA). 
