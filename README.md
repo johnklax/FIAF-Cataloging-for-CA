@@ -8,7 +8,7 @@ This setup is currently being developed at [Anthology Film Archives](http://www.
 
 ## Collective Access Installation Profile
 This profile was written for [Collective Access 2.0.11](https://collectiveaccess.org/) (CA). 
-Instructions for installing CA with an external profile are available at [CA's documentation](https://docs.collectiveaccess.org/providence/user/dataModelling/profiles/).
+Instructions for installing CA with an external profile are available in [CA's documentation](https://docs.collectiveaccess.org/providence/user/dataModelling/profiles/).
 
 ## Contact
 
