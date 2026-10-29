@@ -1,0 +1,2957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  CollectiveAccess profile: FIAF Moving Image Cataloguing Manual (2016), two-level model
+  ====================================================================================
+  The FIAF manual follows the FRBR entities Work > (Variant) > Manifestation > Item.
+  This profile collapses them into two ca_objects levels:
+    Level 1: Work                    (object type "work")
+    Level 2: Manifestation + Item    (object type "manifestation_item"; child of a Work)
+  Choices made in the collapse:
+    * Manifestation-level elements (format, colour, sound, generation, publication data)
+      and Item-level elements (holdings, location, condition, acquisition) sit on one record,
+      so one physical/digital copy = one record.
+    * Variants are not a separate level. Record them as separate Work records linked through
+      ca_objects_x_objects relationship type "variant".
+    * Credits are modelled as ca_entities relationships (roles below) plus transcribed statements.
+  Install: copy to the profiles/xml/ directory of your CollectiveAccess (Providence) install,
+  then select this profile in the installer. Enable the object hierarchy for ca_objects (see notes).
+-->
+<profile useForConfiguration="1" infoUrl="https://www.fiafnet.org/pages/Community/Cataloguing-Documentation.html" base="base">
+  <profileName>FIAF Moving Image Cataloguing (2016), Work / Manifestation+Item</profileName>
+  <profileDescription>Two-level FIAF-based profile: Work, and combined Manifestation/Item.</profileDescription>
+  <profileLabel>FIAF 2016 two-level</profileLabel>
+  <locales>
+    <locale lang="en" country="US"/>
+  </locales>
+  <lists>
+    <list code="object_types" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Object types (FIAF two-level model)</name>
+        </label>
+      </labels>
+      <items>
+        <item code="work" enabled="1" default="1">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Work</name_singular>
+              <name_plural>Work</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="manifestation_item" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Manifestation / Item</name_singular>
+              <name_plural>Manifestation / Item</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="entity_types" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Entity types</name>
+        </label>
+      </labels>
+      <items>
+        <item code="person" enabled="1" default="1">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Person</name_singular>
+              <name_plural>Person</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="organization" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Organization</name_singular>
+              <name_plural>Organization</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="object_label_types" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Title types</name>
+        </label>
+      </labels>
+      <items>
+        <item code="original" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Original title</name_singular>
+              <name_plural>Original title</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="alternative" enabled="1" default="1">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Alternative title</name_singular>
+              <name_plural>Alternative title</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="parallel" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Parallel title</name_singular>
+              <name_plural>Parallel title</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="release" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Release / distribution title</name_singular>
+              <name_plural>Release / distribution title</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="working" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Working title</name_singular>
+              <name_plural>Working title</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="translated" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Translated title</name_singular>
+              <name_plural>Translated title</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="series" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Series title</name_singular>
+              <name_plural>Series title</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="episode" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Episode title</name_singular>
+              <name_plural>Episode title</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="other" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Other title</name_singular>
+              <name_plural>Other title</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_work_forms" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Form of work</name>
+        </label>
+      </labels>
+      <items>
+        <item code="fiction" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Fiction</name_singular>
+              <name_plural>Fiction</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="non_fiction" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Non-fiction / documentary</name_singular>
+              <name_plural>Non-fiction / documentary</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="animation" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Animation</name_singular>
+              <name_plural>Animation</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="experimental" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Experimental / avant-garde</name_singular>
+              <name_plural>Experimental / avant-garde</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="newsreel" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Newsreel / actuality</name_singular>
+              <name_plural>Newsreel / actuality</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="trailer" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Trailer</name_singular>
+              <name_plural>Trailer</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="advertising" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Advertising / commercial</name_singular>
+              <name_plural>Advertising / commercial</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="home_movie" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Home movie / amateur</name_singular>
+              <name_plural>Home movie / amateur</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="music_video" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Music video</name_singular>
+              <name_plural>Music video</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="television" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Television programme</name_singular>
+              <name_plural>Television programme</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="unedited" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Unedited footage / rushes</name_singular>
+              <name_plural>Unedited footage / rushes</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="compilation" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Compilation</name_singular>
+              <name_plural>Compilation</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="other" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Other</name_singular>
+              <name_plural>Other</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_genres" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Genre</name>
+        </label>
+      </labels>
+      <items>
+        <item code="drama" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Drama</name_singular>
+              <name_plural>Drama</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="comedy" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Comedy</name_singular>
+              <name_plural>Comedy</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="western" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Western</name_singular>
+              <name_plural>Western</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="science_fiction" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Science fiction</name_singular>
+              <name_plural>Science fiction</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="horror" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Horror</name_singular>
+              <name_plural>Horror</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="musical" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Musical</name_singular>
+              <name_plural>Musical</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="thriller" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Thriller</name_singular>
+              <name_plural>Thriller</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="war" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>War</name_singular>
+              <name_plural>War</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="biography" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Biography</name_singular>
+              <name_plural>Biography</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="travelogue" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Travelogue</name_singular>
+              <name_plural>Travelogue</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="educational" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Educational / instructional</name_singular>
+              <name_plural>Educational / instructional</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="industrial" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Industrial / sponsored</name_singular>
+              <name_plural>Industrial / sponsored</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="other" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Other</name_singular>
+              <name_plural>Other</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_gauges" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Gauge / carrier format</name>
+        </label>
+      </labels>
+      <items>
+        <item code="35mm" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>35mm film</name_singular>
+              <name_plural>35mm film</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="16mm" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>16mm film</name_singular>
+              <name_plural>16mm film</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="super16" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Super 16mm film</name_singular>
+              <name_plural>Super 16mm film</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="8mm" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Standard 8mm film</name_singular>
+              <name_plural>Standard 8mm film</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="super8" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Super 8mm film</name_singular>
+              <name_plural>Super 8mm film</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="9_5mm" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>9.5mm film</name_singular>
+              <name_plural>9.5mm film</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="28mm" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>28mm film</name_singular>
+              <name_plural>28mm film</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="17_5mm" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>17.5mm film</name_singular>
+              <name_plural>17.5mm film</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="70mm" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>65/70mm film</name_singular>
+              <name_plural>65/70mm film</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="videotape_analog" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Videotape (analogue)</name_singular>
+              <name_plural>Videotape (analogue)</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="videotape_digital" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Videotape (digital)</name_singular>
+              <name_plural>Videotape (digital)</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="optical_disc" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Optical disc (DVD / Blu-ray)</name_singular>
+              <name_plural>Optical disc (DVD / Blu-ray)</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="dcp" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Digital Cinema Package (DCP)</name_singular>
+              <name_plural>Digital Cinema Package (DCP)</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="file" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Digital file</name_singular>
+              <name_plural>Digital file</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="other" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Other</name_singular>
+              <name_plural>Other</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_bases" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Base material</name>
+        </label>
+      </labels>
+      <items>
+        <item code="nitrate" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Cellulose nitrate</name_singular>
+              <name_plural>Cellulose nitrate</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="acetate" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Cellulose acetate (safety)</name_singular>
+              <name_plural>Cellulose acetate (safety)</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="polyester" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Polyester</name_singular>
+              <name_plural>Polyester</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="unknown" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Unknown</name_singular>
+              <name_plural>Unknown</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="not_applicable" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Not applicable</name_singular>
+              <name_plural>Not applicable</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_colour" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Colour characteristics</name>
+        </label>
+      </labels>
+      <items>
+        <item code="bw" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Black and white</name_singular>
+              <name_plural>Black and white</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="colour" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Colour</name_singular>
+              <name_plural>Colour</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="tinted" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Tinted</name_singular>
+              <name_plural>Tinted</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="toned" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Toned</name_singular>
+              <name_plural>Toned</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="tinted_toned" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Tinted and toned</name_singular>
+              <name_plural>Tinted and toned</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="hand_coloured" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Hand-coloured</name_singular>
+              <name_plural>Hand-coloured</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="stencil" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Stencil-coloured</name_singular>
+              <name_plural>Stencil-coloured</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="mixed" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Mixed</name_singular>
+              <name_plural>Mixed</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="unknown" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Unknown</name_singular>
+              <name_plural>Unknown</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_sound" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Sound characteristics</name>
+        </label>
+      </labels>
+      <items>
+        <item code="silent" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Silent</name_singular>
+              <name_plural>Silent</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="optical" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Sound on film: optical</name_singular>
+              <name_plural>Sound on film: optical</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="magnetic" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Sound on film: magnetic</name_singular>
+              <name_plural>Sound on film: magnetic</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="separate_disc" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Sound on separate disc</name_singular>
+              <name_plural>Sound on separate disc</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="separate_magnetic" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Sound on separate magnetic element</name_singular>
+              <name_plural>Sound on separate magnetic element</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="digital" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Digital sound</name_singular>
+              <name_plural>Digital sound</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="unknown" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Unknown</name_singular>
+              <name_plural>Unknown</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_aspect" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Aspect ratio</name>
+        </label>
+      </labels>
+      <items>
+        <item code="1.19" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>1.19:1</name_singular>
+              <name_plural>1.19:1</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="1.33" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>1.33:1 (4:3)</name_singular>
+              <name_plural>1.33:1 (4:3)</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="1.37" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>1.37:1 (Academy)</name_singular>
+              <name_plural>1.37:1 (Academy)</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="1.66" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>1.66:1</name_singular>
+              <name_plural>1.66:1</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="1.78" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>1.78:1 (16:9)</name_singular>
+              <name_plural>1.78:1 (16:9)</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="1.85" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>1.85:1</name_singular>
+              <name_plural>1.85:1</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="2.20" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>2.20:1</name_singular>
+              <name_plural>2.20:1</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="2.35" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>2.35:1</name_singular>
+              <name_plural>2.35:1</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="2.39" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>2.39:1</name_singular>
+              <name_plural>2.39:1</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="other" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Other</name_singular>
+              <name_plural>Other</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="unknown" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Unknown</name_singular>
+              <name_plural>Unknown</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_generations" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Generation</name>
+        </label>
+      </labels>
+      <items>
+        <item code="camera_original" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Camera original</name_singular>
+              <name_plural>Camera original</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="original_negative" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Original negative</name_singular>
+              <name_plural>Original negative</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="reversal_original" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Reversal original</name_singular>
+              <name_plural>Reversal original</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="duplicate_negative" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Duplicate negative</name_singular>
+              <name_plural>Duplicate negative</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="internegative" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Internegative</name_singular>
+              <name_plural>Internegative</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="interpositive" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Interpositive</name_singular>
+              <name_plural>Interpositive</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="master_positive" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Master positive</name_singular>
+              <name_plural>Master positive</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="release_print" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Release print</name_singular>
+              <name_plural>Release print</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="viewing_copy" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Viewing / access copy</name_singular>
+              <name_plural>Viewing / access copy</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="preservation_master" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Preservation master</name_singular>
+              <name_plural>Preservation master</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="access_copy" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Access copy</name_singular>
+              <name_plural>Access copy</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="unknown" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Unknown</name_singular>
+              <name_plural>Unknown</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_language_uses" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Language use</name>
+        </label>
+      </labels>
+      <items>
+        <item code="spoken" enabled="1" default="1">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Spoken</name_singular>
+              <name_plural>Spoken</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="intertitles" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Intertitles</name_singular>
+              <name_plural>Intertitles</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="subtitles" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Subtitles</name_singular>
+              <name_plural>Subtitles</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="dubbed" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Dubbed</name_singular>
+              <name_plural>Dubbed</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="captions" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Captions</name_singular>
+              <name_plural>Captions</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="narration" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Narration</name_singular>
+              <name_plural>Narration</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_identifier_types" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Identifier types</name>
+        </label>
+      </labels>
+      <items>
+        <item code="accession" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Accession number</name_singular>
+              <name_plural>Accession number</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="inventory" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Inventory number</name_singular>
+              <name_plural>Inventory number</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="previous" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Previous number</name_singular>
+              <name_plural>Previous number</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="depositor" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Depositor's number</name_singular>
+              <name_plural>Depositor's number</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="lab" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Laboratory number</name_singular>
+              <name_plural>Laboratory number</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="isan" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>ISAN</name_singular>
+              <name_plural>ISAN</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="other" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Other</name_singular>
+              <name_plural>Other</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_acquisition" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Acquisition method</name>
+        </label>
+      </labels>
+      <items>
+        <item code="donation" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Donation</name_singular>
+              <name_plural>Donation</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="deposit" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Deposit</name_singular>
+              <name_plural>Deposit</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="purchase" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Purchase</name_singular>
+              <name_plural>Purchase</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="exchange" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Exchange</name_singular>
+              <name_plural>Exchange</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="transfer" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Transfer</name_singular>
+              <name_plural>Transfer</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="legal_deposit" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Legal deposit</name_singular>
+              <name_plural>Legal deposit</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="production" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Produced in-house / copying</name_singular>
+              <name_plural>Produced in-house / copying</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="unknown" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Unknown</name_singular>
+              <name_plural>Unknown</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_condition" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Physical condition</name>
+        </label>
+      </labels>
+      <items>
+        <item code="excellent" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Excellent</name_singular>
+              <name_plural>Excellent</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="good" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Good</name_singular>
+              <name_plural>Good</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="fair" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Fair</name_singular>
+              <name_plural>Fair</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="poor" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Poor</name_singular>
+              <name_plural>Poor</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="unusable" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Unusable</name_singular>
+              <name_plural>Unusable</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="unexamined" enabled="1" default="1">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Not examined</name_singular>
+              <name_plural>Not examined</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_deterioration" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Deterioration / damage</name>
+        </label>
+      </labels>
+      <items>
+        <item code="none" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>None observed</name_singular>
+              <name_plural>None observed</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="shrinkage" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Shrinkage</name_singular>
+              <name_plural>Shrinkage</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="vinegar" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Vinegar syndrome</name_singular>
+              <name_plural>Vinegar syndrome</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="nitrate_decay" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Nitrate decay</name_singular>
+              <name_plural>Nitrate decay</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="colour_fading" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Colour fading</name_singular>
+              <name_plural>Colour fading</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="mould" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Mould</name_singular>
+              <name_plural>Mould</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="splices" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Defective splices</name_singular>
+              <name_plural>Defective splices</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="perforation_damage" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Perforation damage</name_singular>
+              <name_plural>Perforation damage</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="scratches" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Scratches / abrasion</name_singular>
+              <name_plural>Scratches / abrasion</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="magnetic_degradation" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Magnetic degradation</name_singular>
+              <name_plural>Magnetic degradation</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="other" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Other</name_singular>
+              <name_plural>Other</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_preservation_actions" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Preservation / treatment action</name>
+        </label>
+      </labels>
+      <items>
+        <item code="inspection" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Inspection</name_singular>
+              <name_plural>Inspection</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="cleaning" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Cleaning</name_singular>
+              <name_plural>Cleaning</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="repair" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Repair</name_singular>
+              <name_plural>Repair</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="duplication" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Duplication</name_singular>
+              <name_plural>Duplication</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="digitisation" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Digitisation</name_singular>
+              <name_plural>Digitisation</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="restoration" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Restoration</name_singular>
+              <name_plural>Restoration</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="rehousing" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Rehousing</name_singular>
+              <name_plural>Rehousing</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="other" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Other</name_singular>
+              <name_plural>Other</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+    <list code="fiaf_access" hierarchical="0" system="0" vocabulary="0">
+      <labels>
+        <label locale="en_US">
+          <name>Access restrictions</name>
+        </label>
+      </labels>
+      <items>
+        <item code="open" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>No restriction</name_singular>
+              <name_plural>No restriction</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="onsite" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>On-site viewing only</name_singular>
+              <name_plural>On-site viewing only</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="restricted" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Restricted (permission required)</name_singular>
+              <name_plural>Restricted (permission required)</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="closed" enabled="1" default="0">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Closed</name_singular>
+              <name_plural>Closed</name_plural>
+            </label>
+          </labels>
+        </item>
+        <item code="unknown" enabled="1" default="1">
+          <labels>
+            <label locale="en_US" preferred="1">
+              <name_singular>Unknown</name_singular>
+              <name_plural>Unknown</name_plural>
+            </label>
+          </labels>
+        </item>
+      </items>
+    </list>
+  </lists>
+  <elementSets>
+    <metadataElement code="fiaf_work_form" datatype="List" list="fiaf_work_forms">
+      <labels>
+        <label locale="en_US">
+          <name>Form of work</name>
+          <description>FIAF: form / type of work.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+      </typeRestrictions>
+    </metadataElement>
+    <metadataElement code="fiaf_work_genre" datatype="List" list="fiaf_genres">
+      <labels>
+        <label locale="en_US">
+          <name>Genre</name>
+          <description>FIAF: genre of the work (repeatable).</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+      </typeRestrictions>
+    </metadataElement>
+    <metadataElement code="fiaf_work_date" datatype="DateRange">
+      <labels>
+        <label locale="en_US">
+          <name>Date of work</name>
+          <description>Date of production or first release of the work.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+      </typeRestrictions>
+    </metadataElement>
+    <metadataElement code="fiaf_work_country" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Country of production</name>
+          <description>Country or countries of production; one per repetition, ISO 3166 names or codes.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">1</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_work_language" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Original language</name>
+          <description>Original language(s) of the work, ISO 639 names or codes.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">1</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_work_runtime" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Original running time</name>
+          <description>Running time of the work as originally released (hh:mm:ss).</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">1</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_credits_statement" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Statement of responsibility / credits</name>
+          <description>Credits as they appear on the work, transcribed.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_cast_statement" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Cast statement</name>
+          <description>Cast as transcribed or as established; use entity relationships for linked names.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_work_summary" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Summary / synopsis</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_work_source" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Source / adaptation note</name>
+          <description>Literary, dramatic or other source on which the work is based.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_work_notes" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Notes on the work</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_date" datatype="DateRange">
+      <labels>
+        <label locale="en_US">
+          <name>Date of manifestation</name>
+          <description>Date of release, publication, printing or creation of this manifestation.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_place" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Place of manifestation</name>
+          <description>Place of release, publication or manufacture.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">1</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_statement" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Release / distribution statement</name>
+          <description>Release details as transcribed (distributor, laboratory, certificate numbers).</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_other_ids" datatype="Container">
+      <labels>
+        <label locale="en_US">
+          <name>Other identifiers</name>
+          <description>Identifiers other than the main item number.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <elements>
+        <metadataElement code="fiaf_mi_other_id_type" datatype="List" list="fiaf_identifier_types">
+          <labels>
+            <label locale="en_US">
+              <name>Identifier type</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_other_id_value" datatype="Text">
+          <labels>
+            <label locale="en_US">
+              <name>Identifier value</name>
+            </label>
+          </labels>
+          <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">1</setting>
+          </settings>
+        </metadataElement>
+      </elements>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_gauge" datatype="List" list="fiaf_gauges">
+      <labels>
+        <label locale="en_US">
+          <name>Gauge / carrier format</name>
+          <description>FIAF: gauge or carrier type.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_base" datatype="List" list="fiaf_bases">
+      <labels>
+        <label locale="en_US">
+          <name>Base material</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_colour" datatype="List" list="fiaf_colour">
+      <labels>
+        <label locale="en_US">
+          <name>Colour characteristics</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_colour_notes" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Colour process notes</name>
+          <description>Colour process or system, tinting/toning details.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_sound" datatype="List" list="fiaf_sound">
+      <labels>
+        <label locale="en_US">
+          <name>Sound characteristics</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_sound_notes" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Sound system notes</name>
+          <description>Sound system, number of channels, noise reduction.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_aspect" datatype="List" list="fiaf_aspect">
+      <labels>
+        <label locale="en_US">
+          <name>Aspect ratio</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_speed" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Projection speed</name>
+          <description>e.g. 24 fps, 18 fps, 25 fps.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">1</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_generation" datatype="List" list="fiaf_generations">
+      <labels>
+        <label locale="en_US">
+          <name>Generation</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_extent" datatype="Container">
+      <labels>
+        <label locale="en_US">
+          <name>Extent</name>
+          <description>Length, reels and running time of this item.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <elements>
+        <metadataElement code="fiaf_mi_len_m" datatype="Numeric">
+          <labels>
+            <label locale="en_US">
+              <name>Length (metres)</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_len_ft" datatype="Numeric">
+          <labels>
+            <label locale="en_US">
+              <name>Length (feet)</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_reels" datatype="Numeric">
+          <labels>
+            <label locale="en_US">
+              <name>Number of reels / units</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_duration" datatype="Text">
+          <labels>
+            <label locale="en_US">
+              <name>Running time (hh:mm:ss)</name>
+            </label>
+          </labels>
+          <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">1</setting>
+          </settings>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_extent_note" datatype="Text">
+          <labels>
+            <label locale="en_US">
+              <name>Extent note</name>
+            </label>
+          </labels>
+          <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">3</setting>
+          </settings>
+        </metadataElement>
+      </elements>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_languages" datatype="Container">
+      <labels>
+        <label locale="en_US">
+          <name>Languages</name>
+          <description>Languages present in this manifestation.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <elements>
+        <metadataElement code="fiaf_mi_lang" datatype="Text">
+          <labels>
+            <label locale="en_US">
+              <name>Language</name>
+            </label>
+          </labels>
+          <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">1</setting>
+          </settings>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_lang_use" datatype="List" list="fiaf_language_uses">
+          <labels>
+            <label locale="en_US">
+              <name>Use</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_lang_note" datatype="Text">
+          <labels>
+            <label locale="en_US">
+              <name>Note</name>
+            </label>
+          </labels>
+          <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">1</setting>
+          </settings>
+        </metadataElement>
+      </elements>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_tech_notes" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Technical notes</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_holder" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Holding institution</name>
+          <description>Institution holding this item.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">1</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_acquisition" datatype="Container">
+      <labels>
+        <label locale="en_US">
+          <name>Acquisition</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <elements>
+        <metadataElement code="fiaf_mi_acq_method" datatype="List" list="fiaf_acquisition">
+          <labels>
+            <label locale="en_US">
+              <name>Method</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_acq_date" datatype="DateRange">
+          <labels>
+            <label locale="en_US">
+              <name>Date</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_acq_source" datatype="Text">
+          <labels>
+            <label locale="en_US">
+              <name>Source</name>
+            </label>
+          </labels>
+          <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">1</setting>
+          </settings>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_acq_note" datatype="Text">
+          <labels>
+            <label locale="en_US">
+              <name>Note</name>
+            </label>
+          </labels>
+          <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">3</setting>
+          </settings>
+        </metadataElement>
+      </elements>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_provenance" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Provenance / custodial history</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_access" datatype="List" list="fiaf_access">
+      <labels>
+        <label locale="en_US">
+          <name>Access restrictions</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_condition" datatype="Container">
+      <labels>
+        <label locale="en_US">
+          <name>Condition</name>
+          <description>One entry per examination.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <elements>
+        <metadataElement code="fiaf_mi_cond_date" datatype="DateRange">
+          <labels>
+            <label locale="en_US">
+              <name>Date examined</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_cond_state" datatype="List" list="fiaf_condition">
+          <labels>
+            <label locale="en_US">
+              <name>Condition</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_cond_damage" datatype="List" list="fiaf_deterioration">
+          <labels>
+            <label locale="en_US">
+              <name>Deterioration / damage</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_cond_note" datatype="Text">
+          <labels>
+            <label locale="en_US">
+              <name>Note</name>
+            </label>
+          </labels>
+          <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">3</setting>
+          </settings>
+        </metadataElement>
+      </elements>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_preservation" datatype="Container">
+      <labels>
+        <label locale="en_US">
+          <name>Preservation / treatment history</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <elements>
+        <metadataElement code="fiaf_mi_pres_action" datatype="List" list="fiaf_preservation_actions">
+          <labels>
+            <label locale="en_US">
+              <name>Action</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_pres_date" datatype="DateRange">
+          <labels>
+            <label locale="en_US">
+              <name>Date</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_mi_pres_note" datatype="Text">
+          <labels>
+            <label locale="en_US">
+              <name>Note</name>
+            </label>
+          </labels>
+          <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">3</setting>
+          </settings>
+        </metadataElement>
+      </elements>
+    </metadataElement>
+    <metadataElement code="fiaf_mi_notes" datatype="Text">
+      <labels>
+        <label locale="en_US">
+          <name>Notes on manifestation / item</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
+    </metadataElement>
+    <metadataElement code="fiaf_cat_info" datatype="Container">
+      <labels>
+        <label locale="en_US">
+          <name>Cataloguing information</name>
+          <description>Record-level information.</description>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <elements>
+        <metadataElement code="fiaf_cat_cataloguer" datatype="Text">
+          <labels>
+            <label locale="en_US">
+              <name>Cataloguer</name>
+            </label>
+          </labels>
+          <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">1</setting>
+          </settings>
+        </metadataElement>
+        <metadataElement code="fiaf_cat_date" datatype="DateRange">
+          <labels>
+            <label locale="en_US">
+              <name>Date of cataloguing</name>
+            </label>
+          </labels>
+        </metadataElement>
+        <metadataElement code="fiaf_cat_rules" datatype="Text">
+          <labels>
+            <label locale="en_US">
+              <name>Rules / standard applied</name>
+            </label>
+          </labels>
+          <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">1</setting>
+            <setting name="default_text">FIAF Moving Image Cataloguing Manual (2016)</setting>
+          </settings>
+        </metadataElement>
+        <metadataElement code="fiaf_cat_note" datatype="Text">
+          <labels>
+            <label locale="en_US">
+              <name>Cataloguing note</name>
+            </label>
+          </labels>
+          <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">3</setting>
+          </settings>
+        </metadataElement>
+      </elements>
+    </metadataElement>
+  </elementSets>
+  <userInterfaces>
+    <userInterface code="fiaf_work_editor" type="ca_objects">
+      <labels>
+        <label locale="en_US">
+          <name>FIAF Work editor</name>
+        </label>
+      </labels>
+      <screens>
+        <screen idno="w_identity" default="1">
+          <labels>
+            <label locale="en_US">
+              <name>Identification</name>
+            </label>
+          </labels>
+          <typeRestrictions>
+            <restriction code="r_work">
+              <table>ca_objects</table>
+              <type>work</type>
+            </restriction>
+          </typeRestrictions>
+          <bundlePlacements>
+            <placement code="p4">
+              <bundle>ca_objects.preferred_labels</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Title (preferred)</setting>
+              </settings>
+            </placement>
+            <placement code="p5">
+              <bundle>ca_objects.nonpreferred_labels</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Other titles</setting>
+              </settings>
+            </placement>
+            <placement code="p6">
+              <bundle>ca_objects.idno</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Work identifier</setting>
+              </settings>
+            </placement>
+            <placement code="p7">
+              <bundle>ca_objects.fiaf_work_form</bundle>
+            </placement>
+            <placement code="p8">
+              <bundle>ca_objects.fiaf_work_genre</bundle>
+            </placement>
+            <placement code="p9">
+              <bundle>ca_objects.fiaf_work_date</bundle>
+            </placement>
+            <placement code="p10">
+              <bundle>ca_objects.fiaf_work_country</bundle>
+            </placement>
+            <placement code="p11">
+              <bundle>ca_objects.fiaf_work_language</bundle>
+            </placement>
+            <placement code="p12">
+              <bundle>ca_objects.fiaf_work_runtime</bundle>
+            </placement>
+            <placement code="p13">
+              <bundle>hierarchy_location</bundle>
+            </placement>
+          </bundlePlacements>
+        </screen>
+        <screen idno="w_credits">
+          <labels>
+            <label locale="en_US">
+              <name>Credits</name>
+            </label>
+          </labels>
+          <typeRestrictions>
+            <restriction code="r_work">
+              <table>ca_objects</table>
+              <type>work</type>
+            </restriction>
+          </typeRestrictions>
+          <bundlePlacements>
+            <placement code="p14">
+              <bundle>ca_objects.fiaf_credits_statement</bundle>
+            </placement>
+            <placement code="p15">
+              <bundle>ca_objects.fiaf_cast_statement</bundle>
+            </placement>
+            <placement code="p16">
+              <bundle>ca_entities</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Credited agents</setting>
+                <setting name="restrict_to_relationship_types">director,screenwriter,producer,production_company,cinematographer,editor,composer,production_designer,sound,animator,cast,narrator,sponsor,other_credit</setting>
+              </settings>
+            </placement>
+          </bundlePlacements>
+        </screen>
+        <screen idno="w_description">
+          <labels>
+            <label locale="en_US">
+              <name>Description</name>
+            </label>
+          </labels>
+          <typeRestrictions>
+            <restriction code="r_work">
+              <table>ca_objects</table>
+              <type>work</type>
+            </restriction>
+          </typeRestrictions>
+          <bundlePlacements>
+            <placement code="p17">
+              <bundle>ca_objects.fiaf_work_summary</bundle>
+            </placement>
+            <placement code="p18">
+              <bundle>ca_objects.fiaf_work_source</bundle>
+            </placement>
+            <placement code="p19">
+              <bundle>ca_list_items</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Subjects / keywords</setting>
+              </settings>
+            </placement>
+            <placement code="p20">
+              <bundle>ca_places</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Places depicted</setting>
+              </settings>
+            </placement>
+            <placement code="p21">
+              <bundle>ca_objects.fiaf_work_notes</bundle>
+            </placement>
+          </bundlePlacements>
+        </screen>
+        <screen idno="w_relations">
+          <labels>
+            <label locale="en_US">
+              <name>Relationships</name>
+            </label>
+          </labels>
+          <typeRestrictions>
+            <restriction code="r_work">
+              <table>ca_objects</table>
+              <type>work</type>
+            </restriction>
+          </typeRestrictions>
+          <bundlePlacements>
+            <placement code="p22">
+              <bundle>ca_objects</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Related works</setting>
+              </settings>
+            </placement>
+            <placement code="p23">
+              <bundle>ca_collections</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Collections</setting>
+              </settings>
+            </placement>
+          </bundlePlacements>
+        </screen>
+        <screen idno="w_admin">
+          <labels>
+            <label locale="en_US">
+              <name>Cataloguing</name>
+            </label>
+          </labels>
+          <typeRestrictions>
+            <restriction code="r_work">
+              <table>ca_objects</table>
+              <type>work</type>
+            </restriction>
+          </typeRestrictions>
+          <bundlePlacements>
+            <placement code="p1">
+              <bundle>ca_objects.fiaf_cat_info</bundle>
+            </placement>
+            <placement code="p2">
+              <bundle>ca_objects.access</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Access status</setting>
+              </settings>
+            </placement>
+            <placement code="p3">
+              <bundle>ca_objects.status</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Workflow status</setting>
+              </settings>
+            </placement>
+          </bundlePlacements>
+        </screen>
+      </screens>
+    </userInterface>
+    <userInterface code="fiaf_mi_editor" type="ca_objects">
+      <labels>
+        <label locale="en_US">
+          <name>FIAF Manifestation/Item editor</name>
+        </label>
+      </labels>
+      <screens>
+        <screen idno="mi_identity" default="1">
+          <labels>
+            <label locale="en_US">
+              <name>Identification</name>
+            </label>
+          </labels>
+          <typeRestrictions>
+            <restriction code="r_manifestation_item">
+              <table>ca_objects</table>
+              <type>manifestation_item</type>
+            </restriction>
+          </typeRestrictions>
+          <bundlePlacements>
+            <placement code="p24">
+              <bundle>ca_objects.preferred_labels</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Manifestation title</setting>
+              </settings>
+            </placement>
+            <placement code="p25">
+              <bundle>ca_objects.nonpreferred_labels</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Other titles</setting>
+              </settings>
+            </placement>
+            <placement code="p26">
+              <bundle>ca_objects.idno</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Item identifier / accession number</setting>
+              </settings>
+            </placement>
+            <placement code="p27">
+              <bundle>ca_objects.fiaf_mi_other_ids</bundle>
+            </placement>
+            <placement code="p28">
+              <bundle>hierarchy_location</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Parent work</setting>
+              </settings>
+            </placement>
+          </bundlePlacements>
+        </screen>
+        <screen idno="mi_publication">
+          <labels>
+            <label locale="en_US">
+              <name>Publication / distribution</name>
+            </label>
+          </labels>
+          <typeRestrictions>
+            <restriction code="r_manifestation_item">
+              <table>ca_objects</table>
+              <type>manifestation_item</type>
+            </restriction>
+          </typeRestrictions>
+          <bundlePlacements>
+            <placement code="p29">
+              <bundle>ca_objects.fiaf_mi_date</bundle>
+            </placement>
+            <placement code="p30">
+              <bundle>ca_objects.fiaf_mi_place</bundle>
+            </placement>
+            <placement code="p31">
+              <bundle>ca_objects.fiaf_mi_statement</bundle>
+            </placement>
+            <placement code="p32">
+              <bundle>ca_entities</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Agents</setting>
+                <setting name="restrict_to_relationship_types">distributor,laboratory,publisher,restorer,depositor,rights_holder,exhibitor,other_agent</setting>
+              </settings>
+            </placement>
+          </bundlePlacements>
+        </screen>
+        <screen idno="mi_technical">
+          <labels>
+            <label locale="en_US">
+              <name>Carrier / technical</name>
+            </label>
+          </labels>
+          <typeRestrictions>
+            <restriction code="r_manifestation_item">
+              <table>ca_objects</table>
+              <type>manifestation_item</type>
+            </restriction>
+          </typeRestrictions>
+          <bundlePlacements>
+            <placement code="p33">
+              <bundle>ca_objects.fiaf_mi_gauge</bundle>
+            </placement>
+            <placement code="p34">
+              <bundle>ca_objects.fiaf_mi_base</bundle>
+            </placement>
+            <placement code="p35">
+              <bundle>ca_objects.fiaf_mi_generation</bundle>
+            </placement>
+            <placement code="p36">
+              <bundle>ca_objects.fiaf_mi_colour</bundle>
+            </placement>
+            <placement code="p37">
+              <bundle>ca_objects.fiaf_mi_colour_notes</bundle>
+            </placement>
+            <placement code="p38">
+              <bundle>ca_objects.fiaf_mi_sound</bundle>
+            </placement>
+            <placement code="p39">
+              <bundle>ca_objects.fiaf_mi_sound_notes</bundle>
+            </placement>
+            <placement code="p40">
+              <bundle>ca_objects.fiaf_mi_aspect</bundle>
+            </placement>
+            <placement code="p41">
+              <bundle>ca_objects.fiaf_mi_speed</bundle>
+            </placement>
+            <placement code="p42">
+              <bundle>ca_objects.fiaf_mi_extent</bundle>
+            </placement>
+            <placement code="p43">
+              <bundle>ca_objects.fiaf_mi_languages</bundle>
+            </placement>
+            <placement code="p44">
+              <bundle>ca_objects.fiaf_mi_tech_notes</bundle>
+            </placement>
+          </bundlePlacements>
+        </screen>
+        <screen idno="mi_holdings">
+          <labels>
+            <label locale="en_US">
+              <name>Item holdings</name>
+            </label>
+          </labels>
+          <typeRestrictions>
+            <restriction code="r_manifestation_item">
+              <table>ca_objects</table>
+              <type>manifestation_item</type>
+            </restriction>
+          </typeRestrictions>
+          <bundlePlacements>
+            <placement code="p45">
+              <bundle>ca_objects.fiaf_mi_holder</bundle>
+            </placement>
+            <placement code="p46">
+              <bundle>ca_storage_locations</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Storage location</setting>
+              </settings>
+            </placement>
+            <placement code="p47">
+              <bundle>ca_objects.fiaf_mi_acquisition</bundle>
+            </placement>
+            <placement code="p48">
+              <bundle>ca_objects.fiaf_mi_provenance</bundle>
+            </placement>
+            <placement code="p49">
+              <bundle>ca_objects.fiaf_mi_access</bundle>
+            </placement>
+          </bundlePlacements>
+        </screen>
+        <screen idno="mi_condition">
+          <labels>
+            <label locale="en_US">
+              <name>Condition / preservation</name>
+            </label>
+          </labels>
+          <typeRestrictions>
+            <restriction code="r_manifestation_item">
+              <table>ca_objects</table>
+              <type>manifestation_item</type>
+            </restriction>
+          </typeRestrictions>
+          <bundlePlacements>
+            <placement code="p50">
+              <bundle>ca_objects.fiaf_mi_condition</bundle>
+            </placement>
+            <placement code="p51">
+              <bundle>ca_objects.fiaf_mi_preservation</bundle>
+            </placement>
+          </bundlePlacements>
+        </screen>
+        <screen idno="mi_admin">
+          <labels>
+            <label locale="en_US">
+              <name>Notes / cataloguing</name>
+            </label>
+          </labels>
+          <typeRestrictions>
+            <restriction code="r_manifestation_item">
+              <table>ca_objects</table>
+              <type>manifestation_item</type>
+            </restriction>
+          </typeRestrictions>
+          <bundlePlacements>
+            <placement code="p52">
+              <bundle>ca_objects.fiaf_mi_notes</bundle>
+            </placement>
+            <placement code="p1">
+              <bundle>ca_objects.fiaf_cat_info</bundle>
+            </placement>
+            <placement code="p2">
+              <bundle>ca_objects.access</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Access status</setting>
+              </settings>
+            </placement>
+            <placement code="p3">
+              <bundle>ca_objects.status</bundle>
+              <settings>
+                <setting name="label" locale="en_US">Workflow status</setting>
+              </settings>
+            </placement>
+          </bundlePlacements>
+        </screen>
+      </screens>
+    </userInterface>
+  </userInterfaces>
+  <relationshipTypes>
+    <relationshipTable name="ca_objects_x_entities">
+      <types>
+        <type code="director" default="1">
+          <labels>
+            <label locale="en_US">
+              <typename>Director</typename>
+              <typename_reverse>Director of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="screenwriter" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Screenwriter</typename>
+              <typename_reverse>Screenwriter of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="producer" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Producer</typename>
+              <typename_reverse>Producer of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="production_company" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Production company</typename>
+              <typename_reverse>Production company of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="cinematographer" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Cinematographer</typename>
+              <typename_reverse>Cinematographer of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="editor" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Editor</typename>
+              <typename_reverse>Editor of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="composer" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Composer</typename>
+              <typename_reverse>Composer of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="production_designer" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Production designer</typename>
+              <typename_reverse>Production designer of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="sound" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Sound</typename>
+              <typename_reverse>Sound for</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="animator" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Animator</typename>
+              <typename_reverse>Animator of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="cast" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Cast / performer</typename>
+              <typename_reverse>Performer in</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="narrator" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Narrator</typename>
+              <typename_reverse>Narrator of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="sponsor" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Sponsor</typename>
+              <typename_reverse>Sponsor of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="other_credit" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Other credit</typename>
+              <typename_reverse>Credit on</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="distributor" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Distributor / releasing agency</typename>
+              <typename_reverse>Distributor of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="laboratory" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Laboratory</typename>
+              <typename_reverse>Laboratory for</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="publisher" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Publisher / manufacturer</typename>
+              <typename_reverse>Publisher of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="restorer" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Restorer / copyist</typename>
+              <typename_reverse>Restorer of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="depositor" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Depositor / donor</typename>
+              <typename_reverse>Depositor of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="rights_holder" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Rights holder</typename>
+              <typename_reverse>Rights holder of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="holder" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Holding institution</typename>
+              <typename_reverse>Holds</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="exhibitor" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Exhibitor</typename>
+              <typename_reverse>Exhibitor of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="other_agent" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Other agent</typename>
+              <typename_reverse>Agent for</typename_reverse>
+            </label>
+          </labels>
+        </type>
+      </types>
+    </relationshipTable>
+    <relationshipTable name="ca_objects_x_objects">
+      <types>
+        <type code="variant" default="1">
+          <labels>
+            <label locale="en_US">
+              <typename>Variant of</typename>
+              <typename_reverse>Has variant</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="remake" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Remake of</typename>
+              <typename_reverse>Remade as</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="adaptation" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Adaptation of</typename>
+              <typename_reverse>Adapted as</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="compilation" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Includes excerpt from</typename>
+              <typename_reverse>Excerpted in</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="sequel" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Sequel to</typename>
+              <typename_reverse>Followed by</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="related" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Related to</typename>
+              <typename_reverse>Related to</typename_reverse>
+            </label>
+          </labels>
+        </type>
+      </types>
+    </relationshipTable>
+    <relationshipTable name="ca_objects_x_storage_locations">
+      <types>
+        <type code="current" default="1">
+          <labels>
+            <label locale="en_US">
+              <typename>Current location</typename>
+              <typename_reverse>Currently holds</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="previous" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Previous location</typename>
+              <typename_reverse>Previously held</typename_reverse>
+            </label>
+          </labels>
+        </type>
+      </types>
+    </relationshipTable>
+    <relationshipTable name="ca_objects_x_vocabulary_terms">
+      <types>
+        <type code="subject" default="1">
+          <labels>
+            <label locale="en_US">
+              <typename>Subject</typename>
+              <typename_reverse>Subject of</typename_reverse>
+            </label>
+          </labels>
+        </type>
+        <type code="keyword" default="0">
+          <labels>
+            <label locale="en_US">
+              <typename>Keyword</typename>
+              <typename_reverse>Keyword for</typename_reverse>
+            </label>
+          </labels>
+        </type>
+      </types>
+    </relationshipTable>
+  </relationshipTypes>
+  <displays>
+    <display code="fiaf_work_list" type="ca_objects" system="0">
+      <labels>
+        <label locale="en_US">
+          <name>FIAF Work list</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_work">
+          <table>ca_objects</table>
+          <type>work</type>
+        </restriction>
+      </typeRestrictions>
+      <bundlePlacements>
+        <placement code="p53">
+          <bundle>ca_objects.preferred_labels</bundle>
+          <settings>
+            <setting name="label" locale="en_US">Title</setting>
+          </settings>
+        </placement>
+        <placement code="p54">
+          <bundle>ca_objects.idno</bundle>
+          <settings>
+            <setting name="label" locale="en_US">Identifier</setting>
+          </settings>
+        </placement>
+        <placement code="p55">
+          <bundle>ca_objects.fiaf_work_date</bundle>
+          <settings>
+            <setting name="label" locale="en_US">Date</setting>
+          </settings>
+        </placement>
+        <placement code="p56">
+          <bundle>ca_objects.fiaf_work_form</bundle>
+          <settings>
+            <setting name="label" locale="en_US">Form</setting>
+          </settings>
+        </placement>
+        <placement code="p57">
+          <bundle>ca_objects.fiaf_work_country</bundle>
+          <settings>
+            <setting name="label" locale="en_US">Country</setting>
+          </settings>
+        </placement>
+      </bundlePlacements>
+    </display>
+    <display code="fiaf_mi_list" type="ca_objects" system="0">
+      <labels>
+        <label locale="en_US">
+          <name>FIAF Manifestation/Item list</name>
+        </label>
+      </labels>
+      <typeRestrictions>
+        <restriction code="r_manifestation_item">
+          <table>ca_objects</table>
+          <type>manifestation_item</type>
+        </restriction>
+      </typeRestrictions>
+      <bundlePlacements>
+        <placement code="p58">
+          <bundle>ca_objects.preferred_labels</bundle>
+          <settings>
+            <setting name="label" locale="en_US">Title</setting>
+          </settings>
+        </placement>
+        <placement code="p59">
+          <bundle>ca_objects.idno</bundle>
+          <settings>
+            <setting name="label" locale="en_US">Item no.</setting>
+          </settings>
+        </placement>
+        <placement code="p60">
+          <bundle>ca_objects.fiaf_mi_gauge</bundle>
+          <settings>
+            <setting name="label" locale="en_US">Gauge / format</setting>
+          </settings>
+        </placement>
+        <placement code="p61">
+          <bundle>ca_objects.fiaf_mi_generation</bundle>
+          <settings>
+            <setting name="label" locale="en_US">Generation</setting>
+          </settings>
+        </placement>
+        <placement code="p62">
+          <bundle>ca_objects.fiaf_mi_extent.fiaf_mi_duration</bundle>
+          <settings>
+            <setting name="label" locale="en_US">Running time</setting>
+          </settings>
+        </placement>
+        <placement code="p63">
+          <bundle>ca_objects.fiaf_mi_condition.fiaf_mi_cond_state</bundle>
+          <settings>
+            <setting name="label" locale="en_US">Condition</setting>
+          </settings>
+        </placement>
+      </bundlePlacements>
+    </display>
+  </displays>
+</profile>
