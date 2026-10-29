@@ -10,8 +10,10 @@ This setup is currently being developed at [Anthology Film Archives](http://www.
 This profile was written for [Collective Access 2.0.11](https://collectiveaccess.org/) (CA). 
 Instructions for installing CA with an external profile are available in [CA's documentation](https://docs.collectiveaccess.org/providence/user/dataModelling/profiles/).
 
-## Contact
+## Status
+Currently untested.
 
+## Contact
 * John Klacsmann, Archivist [Anthology Film Archives](http://www.anthologyfilmarchives.org)
 
 
