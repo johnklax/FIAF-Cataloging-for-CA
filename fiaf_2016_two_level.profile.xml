@@ -19,7 +19,6 @@
 <profile useForConfiguration="1" infoUrl="https://www.fiafnet.org/pages/Community/Cataloguing-Documentation.html" base="base">
   <profileName>FIAF Moving Image Cataloguing (2016), Work / Manifestation+Item</profileName>
   <profileDescription>Two-level FIAF-based profile: Work, and combined Manifestation/Item.</profileDescription>
-  <profileLabel>FIAF 2016 two-level</profileLabel>
   <locales>
     <locale lang="en" country="US"/>
   </locales>
@@ -31,7 +30,7 @@
         </label>
       </labels>
       <items>
-        <item code="work" enabled="1" default="1">
+        <item idno="work" value="work" enabled="1" default="1">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Work</name_singular>
@@ -39,7 +38,7 @@
             </label>
           </labels>
         </item>
-        <item code="manifestation_item" enabled="1" default="0">
+        <item idno="manifestation_item" value="manifestation_item" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Manifestation / Item</name_singular>
@@ -56,7 +55,7 @@
         </label>
       </labels>
       <items>
-        <item code="person" enabled="1" default="1">
+        <item idno="person" value="person" enabled="1" default="1">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Person</name_singular>
@@ -64,7 +63,7 @@
             </label>
           </labels>
         </item>
-        <item code="organization" enabled="1" default="0">
+        <item idno="organization" value="organization" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Organization</name_singular>
@@ -81,7 +80,7 @@
         </label>
       </labels>
       <items>
-        <item code="original" enabled="1" default="0">
+        <item idno="original" value="original" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Original title</name_singular>
@@ -89,7 +88,7 @@
             </label>
           </labels>
         </item>
-        <item code="alternative" enabled="1" default="1">
+        <item idno="alternative" value="alternative" enabled="1" default="1">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Alternative title</name_singular>
@@ -97,7 +96,7 @@
             </label>
           </labels>
         </item>
-        <item code="parallel" enabled="1" default="0">
+        <item idno="parallel" value="parallel" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Parallel title</name_singular>
@@ -105,7 +104,7 @@
             </label>
           </labels>
         </item>
-        <item code="release" enabled="1" default="0">
+        <item idno="release" value="release" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Release / distribution title</name_singular>
@@ -113,7 +112,7 @@
             </label>
           </labels>
         </item>
-        <item code="working" enabled="1" default="0">
+        <item idno="working" value="working" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Working title</name_singular>
@@ -121,7 +120,7 @@
             </label>
           </labels>
         </item>
-        <item code="translated" enabled="1" default="0">
+        <item idno="translated" value="translated" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Translated title</name_singular>
@@ -129,7 +128,7 @@
             </label>
           </labels>
         </item>
-        <item code="series" enabled="1" default="0">
+        <item idno="series" value="series" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Series title</name_singular>
@@ -137,7 +136,7 @@
             </label>
           </labels>
         </item>
-        <item code="episode" enabled="1" default="0">
+        <item idno="episode" value="episode" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Episode title</name_singular>
@@ -145,7 +144,7 @@
             </label>
           </labels>
         </item>
-        <item code="other" enabled="1" default="0">
+        <item idno="other" value="other" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Other title</name_singular>
@@ -162,7 +161,7 @@
         </label>
       </labels>
       <items>
-        <item code="fiction" enabled="1" default="0">
+        <item idno="fiction" value="fiction" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Fiction</name_singular>
@@ -170,7 +169,7 @@
             </label>
           </labels>
         </item>
-        <item code="non_fiction" enabled="1" default="0">
+        <item idno="non_fiction" value="non_fiction" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Non-fiction / documentary</name_singular>
@@ -178,7 +177,7 @@
             </label>
           </labels>
         </item>
-        <item code="animation" enabled="1" default="0">
+        <item idno="animation" value="animation" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Animation</name_singular>
@@ -186,7 +185,7 @@
             </label>
           </labels>
         </item>
-        <item code="experimental" enabled="1" default="0">
+        <item idno="experimental" value="experimental" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Experimental / avant-garde</name_singular>
@@ -194,7 +193,7 @@
             </label>
           </labels>
         </item>
-        <item code="newsreel" enabled="1" default="0">
+        <item idno="newsreel" value="newsreel" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Newsreel / actuality</name_singular>
@@ -202,7 +201,7 @@
             </label>
           </labels>
         </item>
-        <item code="trailer" enabled="1" default="0">
+        <item idno="trailer" value="trailer" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Trailer</name_singular>
@@ -210,7 +209,7 @@
             </label>
           </labels>
         </item>
-        <item code="advertising" enabled="1" default="0">
+        <item idno="advertising" value="advertising" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Advertising / commercial</name_singular>
@@ -218,7 +217,7 @@
             </label>
           </labels>
         </item>
-        <item code="home_movie" enabled="1" default="0">
+        <item idno="home_movie" value="home_movie" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Home movie / amateur</name_singular>
@@ -226,7 +225,7 @@
             </label>
           </labels>
         </item>
-        <item code="music_video" enabled="1" default="0">
+        <item idno="music_video" value="music_video" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Music video</name_singular>
@@ -234,7 +233,7 @@
             </label>
           </labels>
         </item>
-        <item code="television" enabled="1" default="0">
+        <item idno="television" value="television" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Television programme</name_singular>
@@ -242,7 +241,7 @@
             </label>
           </labels>
         </item>
-        <item code="unedited" enabled="1" default="0">
+        <item idno="unedited" value="unedited" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Unedited footage / rushes</name_singular>
@@ -250,7 +249,7 @@
             </label>
           </labels>
         </item>
-        <item code="compilation" enabled="1" default="0">
+        <item idno="compilation" value="compilation" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Compilation</name_singular>
@@ -258,7 +257,7 @@
             </label>
           </labels>
         </item>
-        <item code="other" enabled="1" default="0">
+        <item idno="other" value="other" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Other</name_singular>
@@ -275,7 +274,7 @@
         </label>
       </labels>
       <items>
-        <item code="drama" enabled="1" default="0">
+        <item idno="drama" value="drama" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Drama</name_singular>
@@ -283,7 +282,7 @@
             </label>
           </labels>
         </item>
-        <item code="comedy" enabled="1" default="0">
+        <item idno="comedy" value="comedy" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Comedy</name_singular>
@@ -291,7 +290,7 @@
             </label>
           </labels>
         </item>
-        <item code="western" enabled="1" default="0">
+        <item idno="western" value="western" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Western</name_singular>
@@ -299,7 +298,7 @@
             </label>
           </labels>
         </item>
-        <item code="science_fiction" enabled="1" default="0">
+        <item idno="science_fiction" value="science_fiction" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Science fiction</name_singular>
@@ -307,7 +306,7 @@
             </label>
           </labels>
         </item>
-        <item code="horror" enabled="1" default="0">
+        <item idno="horror" value="horror" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Horror</name_singular>
@@ -315,7 +314,7 @@
             </label>
           </labels>
         </item>
-        <item code="musical" enabled="1" default="0">
+        <item idno="musical" value="musical" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Musical</name_singular>
@@ -323,7 +322,7 @@
             </label>
           </labels>
         </item>
-        <item code="thriller" enabled="1" default="0">
+        <item idno="thriller" value="thriller" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Thriller</name_singular>
@@ -331,7 +330,7 @@
             </label>
           </labels>
         </item>
-        <item code="war" enabled="1" default="0">
+        <item idno="war" value="war" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>War</name_singular>
@@ -339,7 +338,7 @@
             </label>
           </labels>
         </item>
-        <item code="biography" enabled="1" default="0">
+        <item idno="biography" value="biography" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Biography</name_singular>
@@ -347,7 +346,7 @@
             </label>
           </labels>
         </item>
-        <item code="travelogue" enabled="1" default="0">
+        <item idno="travelogue" value="travelogue" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Travelogue</name_singular>
@@ -355,7 +354,7 @@
             </label>
           </labels>
         </item>
-        <item code="educational" enabled="1" default="0">
+        <item idno="educational" value="educational" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Educational / instructional</name_singular>
@@ -363,7 +362,7 @@
             </label>
           </labels>
         </item>
-        <item code="industrial" enabled="1" default="0">
+        <item idno="industrial" value="industrial" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Industrial / sponsored</name_singular>
@@ -371,7 +370,7 @@
             </label>
           </labels>
         </item>
-        <item code="other" enabled="1" default="0">
+        <item idno="other" value="other" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Other</name_singular>
@@ -388,7 +387,7 @@
         </label>
       </labels>
       <items>
-        <item code="35mm" enabled="1" default="0">
+        <item idno="35mm" value="35mm" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>35mm film</name_singular>
@@ -396,7 +395,7 @@
             </label>
           </labels>
         </item>
-        <item code="16mm" enabled="1" default="0">
+        <item idno="16mm" value="16mm" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>16mm film</name_singular>
@@ -404,7 +403,7 @@
             </label>
           </labels>
         </item>
-        <item code="super16" enabled="1" default="0">
+        <item idno="super16" value="super16" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Super 16mm film</name_singular>
@@ -412,7 +411,7 @@
             </label>
           </labels>
         </item>
-        <item code="8mm" enabled="1" default="0">
+        <item idno="8mm" value="8mm" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Standard 8mm film</name_singular>
@@ -420,7 +419,7 @@
             </label>
           </labels>
         </item>
-        <item code="super8" enabled="1" default="0">
+        <item idno="super8" value="super8" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Super 8mm film</name_singular>
@@ -428,7 +427,7 @@
             </label>
           </labels>
         </item>
-        <item code="9_5mm" enabled="1" default="0">
+        <item idno="9_5mm" value="9_5mm" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>9.5mm film</name_singular>
@@ -436,7 +435,7 @@
             </label>
           </labels>
         </item>
-        <item code="28mm" enabled="1" default="0">
+        <item idno="28mm" value="28mm" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>28mm film</name_singular>
@@ -444,7 +443,7 @@
             </label>
           </labels>
         </item>
-        <item code="17_5mm" enabled="1" default="0">
+        <item idno="17_5mm" value="17_5mm" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>17.5mm film</name_singular>
@@ -452,7 +451,7 @@
             </label>
           </labels>
         </item>
-        <item code="70mm" enabled="1" default="0">
+        <item idno="70mm" value="70mm" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>65/70mm film</name_singular>
@@ -460,7 +459,7 @@
             </label>
           </labels>
         </item>
-        <item code="videotape_analog" enabled="1" default="0">
+        <item idno="videotape_analog" value="videotape_analog" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Videotape (analogue)</name_singular>
@@ -468,7 +467,7 @@
             </label>
           </labels>
         </item>
-        <item code="videotape_digital" enabled="1" default="0">
+        <item idno="videotape_digital" value="videotape_digital" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Videotape (digital)</name_singular>
@@ -476,7 +475,7 @@
             </label>
           </labels>
         </item>
-        <item code="optical_disc" enabled="1" default="0">
+        <item idno="optical_disc" value="optical_disc" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Optical disc (DVD / Blu-ray)</name_singular>
@@ -484,7 +483,7 @@
             </label>
           </labels>
         </item>
-        <item code="dcp" enabled="1" default="0">
+        <item idno="dcp" value="dcp" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Digital Cinema Package (DCP)</name_singular>
@@ -492,7 +491,7 @@
             </label>
           </labels>
         </item>
-        <item code="file" enabled="1" default="0">
+        <item idno="file" value="file" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Digital file</name_singular>
@@ -500,7 +499,7 @@
             </label>
           </labels>
         </item>
-        <item code="other" enabled="1" default="0">
+        <item idno="other" value="other" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Other</name_singular>
@@ -517,7 +516,7 @@
         </label>
       </labels>
       <items>
-        <item code="nitrate" enabled="1" default="0">
+        <item idno="nitrate" value="nitrate" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Cellulose nitrate</name_singular>
@@ -525,7 +524,7 @@
             </label>
           </labels>
         </item>
-        <item code="acetate" enabled="1" default="0">
+        <item idno="acetate" value="acetate" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Cellulose acetate (safety)</name_singular>
@@ -533,7 +532,7 @@
             </label>
           </labels>
         </item>
-        <item code="polyester" enabled="1" default="0">
+        <item idno="polyester" value="polyester" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Polyester</name_singular>
@@ -541,7 +540,7 @@
             </label>
           </labels>
         </item>
-        <item code="unknown" enabled="1" default="0">
+        <item idno="unknown" value="unknown" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Unknown</name_singular>
@@ -549,7 +548,7 @@
             </label>
           </labels>
         </item>
-        <item code="not_applicable" enabled="1" default="0">
+        <item idno="not_applicable" value="not_applicable" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Not applicable</name_singular>
@@ -566,7 +565,7 @@
         </label>
       </labels>
       <items>
-        <item code="bw" enabled="1" default="0">
+        <item idno="bw" value="bw" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Black and white</name_singular>
@@ -574,7 +573,7 @@
             </label>
           </labels>
         </item>
-        <item code="colour" enabled="1" default="0">
+        <item idno="colour" value="colour" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Colour</name_singular>
@@ -582,7 +581,7 @@
             </label>
           </labels>
         </item>
-        <item code="tinted" enabled="1" default="0">
+        <item idno="tinted" value="tinted" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Tinted</name_singular>
@@ -590,7 +589,7 @@
             </label>
           </labels>
         </item>
-        <item code="toned" enabled="1" default="0">
+        <item idno="toned" value="toned" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Toned</name_singular>
@@ -598,7 +597,7 @@
             </label>
           </labels>
         </item>
-        <item code="tinted_toned" enabled="1" default="0">
+        <item idno="tinted_toned" value="tinted_toned" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Tinted and toned</name_singular>
@@ -606,7 +605,7 @@
             </label>
           </labels>
         </item>
-        <item code="hand_coloured" enabled="1" default="0">
+        <item idno="hand_coloured" value="hand_coloured" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Hand-coloured</name_singular>
@@ -614,7 +613,7 @@
             </label>
           </labels>
         </item>
-        <item code="stencil" enabled="1" default="0">
+        <item idno="stencil" value="stencil" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Stencil-coloured</name_singular>
@@ -622,7 +621,7 @@
             </label>
           </labels>
         </item>
-        <item code="mixed" enabled="1" default="0">
+        <item idno="mixed" value="mixed" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Mixed</name_singular>
@@ -630,7 +629,7 @@
             </label>
           </labels>
         </item>
-        <item code="unknown" enabled="1" default="0">
+        <item idno="unknown" value="unknown" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Unknown</name_singular>
@@ -647,7 +646,7 @@
         </label>
       </labels>
       <items>
-        <item code="silent" enabled="1" default="0">
+        <item idno="silent" value="silent" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Silent</name_singular>
@@ -655,7 +654,7 @@
             </label>
           </labels>
         </item>
-        <item code="optical" enabled="1" default="0">
+        <item idno="optical" value="optical" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Sound on film: optical</name_singular>
@@ -663,7 +662,7 @@
             </label>
           </labels>
         </item>
-        <item code="magnetic" enabled="1" default="0">
+        <item idno="magnetic" value="magnetic" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Sound on film: magnetic</name_singular>
@@ -671,7 +670,7 @@
             </label>
           </labels>
         </item>
-        <item code="separate_disc" enabled="1" default="0">
+        <item idno="separate_disc" value="separate_disc" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Sound on separate disc</name_singular>
@@ -679,7 +678,7 @@
             </label>
           </labels>
         </item>
-        <item code="separate_magnetic" enabled="1" default="0">
+        <item idno="separate_magnetic" value="separate_magnetic" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Sound on separate magnetic element</name_singular>
@@ -687,7 +686,7 @@
             </label>
           </labels>
         </item>
-        <item code="digital" enabled="1" default="0">
+        <item idno="digital" value="digital" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Digital sound</name_singular>
@@ -695,7 +694,7 @@
             </label>
           </labels>
         </item>
-        <item code="unknown" enabled="1" default="0">
+        <item idno="unknown" value="unknown" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Unknown</name_singular>
@@ -712,7 +711,7 @@
         </label>
       </labels>
       <items>
-        <item code="1.19" enabled="1" default="0">
+        <item idno="1_19" value="1.19" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>1.19:1</name_singular>
@@ -720,7 +719,7 @@
             </label>
           </labels>
         </item>
-        <item code="1.33" enabled="1" default="0">
+        <item idno="1_33" value="1.33" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>1.33:1 (4:3)</name_singular>
@@ -728,7 +727,7 @@
             </label>
           </labels>
         </item>
-        <item code="1.37" enabled="1" default="0">
+        <item idno="1_37" value="1.37" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>1.37:1 (Academy)</name_singular>
@@ -736,7 +735,7 @@
             </label>
           </labels>
         </item>
-        <item code="1.66" enabled="1" default="0">
+        <item idno="1_66" value="1.66" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>1.66:1</name_singular>
@@ -744,7 +743,7 @@
             </label>
           </labels>
         </item>
-        <item code="1.78" enabled="1" default="0">
+        <item idno="1_78" value="1.78" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>1.78:1 (16:9)</name_singular>
@@ -752,7 +751,7 @@
             </label>
           </labels>
         </item>
-        <item code="1.85" enabled="1" default="0">
+        <item idno="1_85" value="1.85" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>1.85:1</name_singular>
@@ -760,7 +759,7 @@
             </label>
           </labels>
         </item>
-        <item code="2.20" enabled="1" default="0">
+        <item idno="2_20" value="2.20" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>2.20:1</name_singular>
@@ -768,7 +767,7 @@
             </label>
           </labels>
         </item>
-        <item code="2.35" enabled="1" default="0">
+        <item idno="2_35" value="2.35" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>2.35:1</name_singular>
@@ -776,7 +775,7 @@
             </label>
           </labels>
         </item>
-        <item code="2.39" enabled="1" default="0">
+        <item idno="2_39" value="2.39" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>2.39:1</name_singular>
@@ -784,7 +783,7 @@
             </label>
           </labels>
         </item>
-        <item code="other" enabled="1" default="0">
+        <item idno="other" value="other" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Other</name_singular>
@@ -792,7 +791,7 @@
             </label>
           </labels>
         </item>
-        <item code="unknown" enabled="1" default="0">
+        <item idno="unknown" value="unknown" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Unknown</name_singular>
@@ -809,7 +808,7 @@
         </label>
       </labels>
       <items>
-        <item code="camera_original" enabled="1" default="0">
+        <item idno="camera_original" value="camera_original" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Camera original</name_singular>
@@ -817,7 +816,7 @@
             </label>
           </labels>
         </item>
-        <item code="original_negative" enabled="1" default="0">
+        <item idno="original_negative" value="original_negative" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Original negative</name_singular>
@@ -825,7 +824,7 @@
             </label>
           </labels>
         </item>
-        <item code="reversal_original" enabled="1" default="0">
+        <item idno="reversal_original" value="reversal_original" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Reversal original</name_singular>
@@ -833,7 +832,7 @@
             </label>
           </labels>
         </item>
-        <item code="duplicate_negative" enabled="1" default="0">
+        <item idno="duplicate_negative" value="duplicate_negative" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Duplicate negative</name_singular>
@@ -841,7 +840,7 @@
             </label>
           </labels>
         </item>
-        <item code="internegative" enabled="1" default="0">
+        <item idno="internegative" value="internegative" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Internegative</name_singular>
@@ -849,7 +848,7 @@
             </label>
           </labels>
         </item>
-        <item code="interpositive" enabled="1" default="0">
+        <item idno="interpositive" value="interpositive" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Interpositive</name_singular>
@@ -857,7 +856,7 @@
             </label>
           </labels>
         </item>
-        <item code="master_positive" enabled="1" default="0">
+        <item idno="master_positive" value="master_positive" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Master positive</name_singular>
@@ -865,7 +864,7 @@
             </label>
           </labels>
         </item>
-        <item code="release_print" enabled="1" default="0">
+        <item idno="release_print" value="release_print" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Release print</name_singular>
@@ -873,7 +872,7 @@
             </label>
           </labels>
         </item>
-        <item code="viewing_copy" enabled="1" default="0">
+        <item idno="viewing_copy" value="viewing_copy" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Viewing / access copy</name_singular>
@@ -881,7 +880,7 @@
             </label>
           </labels>
         </item>
-        <item code="preservation_master" enabled="1" default="0">
+        <item idno="preservation_master" value="preservation_master" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Preservation master</name_singular>
@@ -889,7 +888,7 @@
             </label>
           </labels>
         </item>
-        <item code="access_copy" enabled="1" default="0">
+        <item idno="access_copy" value="access_copy" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Access copy</name_singular>
@@ -897,7 +896,7 @@
             </label>
           </labels>
         </item>
-        <item code="unknown" enabled="1" default="0">
+        <item idno="unknown" value="unknown" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Unknown</name_singular>
@@ -914,7 +913,7 @@
         </label>
       </labels>
       <items>
-        <item code="spoken" enabled="1" default="1">
+        <item idno="spoken" value="spoken" enabled="1" default="1">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Spoken</name_singular>
@@ -922,7 +921,7 @@
             </label>
           </labels>
         </item>
-        <item code="intertitles" enabled="1" default="0">
+        <item idno="intertitles" value="intertitles" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Intertitles</name_singular>
@@ -930,7 +929,7 @@
             </label>
           </labels>
         </item>
-        <item code="subtitles" enabled="1" default="0">
+        <item idno="subtitles" value="subtitles" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Subtitles</name_singular>
@@ -938,7 +937,7 @@
             </label>
           </labels>
         </item>
-        <item code="dubbed" enabled="1" default="0">
+        <item idno="dubbed" value="dubbed" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Dubbed</name_singular>
@@ -946,7 +945,7 @@
             </label>
           </labels>
         </item>
-        <item code="captions" enabled="1" default="0">
+        <item idno="captions" value="captions" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Captions</name_singular>
@@ -954,7 +953,7 @@
             </label>
           </labels>
         </item>
-        <item code="narration" enabled="1" default="0">
+        <item idno="narration" value="narration" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Narration</name_singular>
@@ -971,7 +970,7 @@
         </label>
       </labels>
       <items>
-        <item code="accession" enabled="1" default="0">
+        <item idno="accession" value="accession" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Accession number</name_singular>
@@ -979,7 +978,7 @@
             </label>
           </labels>
         </item>
-        <item code="inventory" enabled="1" default="0">
+        <item idno="inventory" value="inventory" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Inventory number</name_singular>
@@ -987,7 +986,7 @@
             </label>
           </labels>
         </item>
-        <item code="previous" enabled="1" default="0">
+        <item idno="previous" value="previous" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Previous number</name_singular>
@@ -995,7 +994,7 @@
             </label>
           </labels>
         </item>
-        <item code="depositor" enabled="1" default="0">
+        <item idno="depositor" value="depositor" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Depositor's number</name_singular>
@@ -1003,7 +1002,7 @@
             </label>
           </labels>
         </item>
-        <item code="lab" enabled="1" default="0">
+        <item idno="lab" value="lab" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Laboratory number</name_singular>
@@ -1011,7 +1010,7 @@
             </label>
           </labels>
         </item>
-        <item code="isan" enabled="1" default="0">
+        <item idno="isan" value="isan" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>ISAN</name_singular>
@@ -1019,7 +1018,7 @@
             </label>
           </labels>
         </item>
-        <item code="other" enabled="1" default="0">
+        <item idno="other" value="other" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Other</name_singular>
@@ -1036,7 +1035,7 @@
         </label>
       </labels>
       <items>
-        <item code="donation" enabled="1" default="0">
+        <item idno="donation" value="donation" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Donation</name_singular>
@@ -1044,7 +1043,7 @@
             </label>
           </labels>
         </item>
-        <item code="deposit" enabled="1" default="0">
+        <item idno="deposit" value="deposit" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Deposit</name_singular>
@@ -1052,7 +1051,7 @@
             </label>
           </labels>
         </item>
-        <item code="purchase" enabled="1" default="0">
+        <item idno="purchase" value="purchase" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Purchase</name_singular>
@@ -1060,7 +1059,7 @@
             </label>
           </labels>
         </item>
-        <item code="exchange" enabled="1" default="0">
+        <item idno="exchange" value="exchange" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Exchange</name_singular>
@@ -1068,7 +1067,7 @@
             </label>
           </labels>
         </item>
-        <item code="transfer" enabled="1" default="0">
+        <item idno="transfer" value="transfer" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Transfer</name_singular>
@@ -1076,7 +1075,7 @@
             </label>
           </labels>
         </item>
-        <item code="legal_deposit" enabled="1" default="0">
+        <item idno="legal_deposit" value="legal_deposit" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Legal deposit</name_singular>
@@ -1084,7 +1083,7 @@
             </label>
           </labels>
         </item>
-        <item code="production" enabled="1" default="0">
+        <item idno="production" value="production" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Produced in-house / copying</name_singular>
@@ -1092,7 +1091,7 @@
             </label>
           </labels>
         </item>
-        <item code="unknown" enabled="1" default="0">
+        <item idno="unknown" value="unknown" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Unknown</name_singular>
@@ -1109,7 +1108,7 @@
         </label>
       </labels>
       <items>
-        <item code="excellent" enabled="1" default="0">
+        <item idno="excellent" value="excellent" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Excellent</name_singular>
@@ -1117,7 +1116,7 @@
             </label>
           </labels>
         </item>
-        <item code="good" enabled="1" default="0">
+        <item idno="good" value="good" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Good</name_singular>
@@ -1125,7 +1124,7 @@
             </label>
           </labels>
         </item>
-        <item code="fair" enabled="1" default="0">
+        <item idno="fair" value="fair" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Fair</name_singular>
@@ -1133,7 +1132,7 @@
             </label>
           </labels>
         </item>
-        <item code="poor" enabled="1" default="0">
+        <item idno="poor" value="poor" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Poor</name_singular>
@@ -1141,7 +1140,7 @@
             </label>
           </labels>
         </item>
-        <item code="unusable" enabled="1" default="0">
+        <item idno="unusable" value="unusable" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Unusable</name_singular>
@@ -1149,7 +1148,7 @@
             </label>
           </labels>
         </item>
-        <item code="unexamined" enabled="1" default="1">
+        <item idno="unexamined" value="unexamined" enabled="1" default="1">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Not examined</name_singular>
@@ -1166,7 +1165,7 @@
         </label>
       </labels>
       <items>
-        <item code="none" enabled="1" default="0">
+        <item idno="none" value="none" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>None observed</name_singular>
@@ -1174,7 +1173,7 @@
             </label>
           </labels>
         </item>
-        <item code="shrinkage" enabled="1" default="0">
+        <item idno="shrinkage" value="shrinkage" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Shrinkage</name_singular>
@@ -1182,7 +1181,7 @@
             </label>
           </labels>
         </item>
-        <item code="vinegar" enabled="1" default="0">
+        <item idno="vinegar" value="vinegar" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Vinegar syndrome</name_singular>
@@ -1190,7 +1189,7 @@
             </label>
           </labels>
         </item>
-        <item code="nitrate_decay" enabled="1" default="0">
+        <item idno="nitrate_decay" value="nitrate_decay" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Nitrate decay</name_singular>
@@ -1198,7 +1197,7 @@
             </label>
           </labels>
         </item>
-        <item code="colour_fading" enabled="1" default="0">
+        <item idno="colour_fading" value="colour_fading" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Colour fading</name_singular>
@@ -1206,7 +1205,7 @@
             </label>
           </labels>
         </item>
-        <item code="mould" enabled="1" default="0">
+        <item idno="mould" value="mould" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Mould</name_singular>
@@ -1214,7 +1213,7 @@
             </label>
           </labels>
         </item>
-        <item code="splices" enabled="1" default="0">
+        <item idno="splices" value="splices" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Defective splices</name_singular>
@@ -1222,7 +1221,7 @@
             </label>
           </labels>
         </item>
-        <item code="perforation_damage" enabled="1" default="0">
+        <item idno="perforation_damage" value="perforation_damage" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Perforation damage</name_singular>
@@ -1230,7 +1229,7 @@
             </label>
           </labels>
         </item>
-        <item code="scratches" enabled="1" default="0">
+        <item idno="scratches" value="scratches" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Scratches / abrasion</name_singular>
@@ -1238,7 +1237,7 @@
             </label>
           </labels>
         </item>
-        <item code="magnetic_degradation" enabled="1" default="0">
+        <item idno="magnetic_degradation" value="magnetic_degradation" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Magnetic degradation</name_singular>
@@ -1246,7 +1245,7 @@
             </label>
           </labels>
         </item>
-        <item code="other" enabled="1" default="0">
+        <item idno="other" value="other" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Other</name_singular>
@@ -1263,7 +1262,7 @@
         </label>
       </labels>
       <items>
-        <item code="inspection" enabled="1" default="0">
+        <item idno="inspection" value="inspection" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Inspection</name_singular>
@@ -1271,7 +1270,7 @@
             </label>
           </labels>
         </item>
-        <item code="cleaning" enabled="1" default="0">
+        <item idno="cleaning" value="cleaning" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Cleaning</name_singular>
@@ -1279,7 +1278,7 @@
             </label>
           </labels>
         </item>
-        <item code="repair" enabled="1" default="0">
+        <item idno="repair" value="repair" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Repair</name_singular>
@@ -1287,7 +1286,7 @@
             </label>
           </labels>
         </item>
-        <item code="duplication" enabled="1" default="0">
+        <item idno="duplication" value="duplication" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Duplication</name_singular>
@@ -1295,7 +1294,7 @@
             </label>
           </labels>
         </item>
-        <item code="digitisation" enabled="1" default="0">
+        <item idno="digitisation" value="digitisation" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Digitisation</name_singular>
@@ -1303,7 +1302,7 @@
             </label>
           </labels>
         </item>
-        <item code="restoration" enabled="1" default="0">
+        <item idno="restoration" value="restoration" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Restoration</name_singular>
@@ -1311,7 +1310,7 @@
             </label>
           </labels>
         </item>
-        <item code="rehousing" enabled="1" default="0">
+        <item idno="rehousing" value="rehousing" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Rehousing</name_singular>
@@ -1319,7 +1318,7 @@
             </label>
           </labels>
         </item>
-        <item code="other" enabled="1" default="0">
+        <item idno="other" value="other" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Other</name_singular>
@@ -1336,7 +1335,7 @@
         </label>
       </labels>
       <items>
-        <item code="open" enabled="1" default="0">
+        <item idno="open" value="open" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>No restriction</name_singular>
@@ -1344,7 +1343,7 @@
             </label>
           </labels>
         </item>
-        <item code="onsite" enabled="1" default="0">
+        <item idno="onsite" value="onsite" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>On-site viewing only</name_singular>
@@ -1352,7 +1351,7 @@
             </label>
           </labels>
         </item>
-        <item code="restricted" enabled="1" default="0">
+        <item idno="restricted" value="restricted" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Restricted (permission required)</name_singular>
@@ -1360,7 +1359,7 @@
             </label>
           </labels>
         </item>
-        <item code="closed" enabled="1" default="0">
+        <item idno="closed" value="closed" enabled="1" default="0">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Closed</name_singular>
@@ -1368,7 +1367,7 @@
             </label>
           </labels>
         </item>
-        <item code="unknown" enabled="1" default="1">
+        <item idno="unknown" value="unknown" enabled="1" default="1">
           <labels>
             <label locale="en_US" preferred="1">
               <name_singular>Unknown</name_singular>
@@ -1433,12 +1432,12 @@
         <restriction code="r_work">
           <table>ca_objects</table>
           <type>work</type>
+          <settings>
+        	<setting name="fieldWidth">70</setting>
+        	<setting name="fieldHeight">1</setting>
+      	  </settings>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">1</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_work_language" datatype="Text">
       <labels>
@@ -1451,12 +1450,12 @@
         <restriction code="r_work">
           <table>ca_objects</table>
           <type>work</type>
+          <settings>
+        	<setting name="fieldWidth">70</setting>
+        	<setting name="fieldHeight">1</setting>
+      	  </settings>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">1</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_work_runtime" datatype="Text">
       <labels>
@@ -1469,12 +1468,12 @@
         <restriction code="r_work">
           <table>ca_objects</table>
           <type>work</type>
+          <settings>
+        	<setting name="fieldWidth">70</setting>
+        	<setting name="fieldHeight">1</setting>
+      	  </settings>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">1</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_credits_statement" datatype="Text">
       <labels>
@@ -1487,12 +1486,12 @@
         <restriction code="r_work">
           <table>ca_objects</table>
           <type>work</type>
+          <settings>
+        	<setting name="fieldWidth">70</setting>
+        	<setting name="fieldHeight">3</setting>
+      	  </settings>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">3</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_cast_statement" datatype="Text">
       <labels>
@@ -1505,12 +1504,12 @@
         <restriction code="r_work">
           <table>ca_objects</table>
           <type>work</type>
+          <settings>
+        	<setting name="fieldWidth">70</setting>
+        	<setting name="fieldHeight">3</setting>
+          </settings>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">3</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_work_summary" datatype="Text">
       <labels>
@@ -1522,12 +1521,12 @@
         <restriction code="r_work">
           <table>ca_objects</table>
           <type>work</type>
+          <settings>
+        	<setting name="fieldWidth">70</setting>
+        	<setting name="fieldHeight">3</setting>
+          </settings>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">3</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_work_source" datatype="Text">
       <labels>
@@ -1540,12 +1539,12 @@
         <restriction code="r_work">
           <table>ca_objects</table>
           <type>work</type>
+          <settings>
+        	<setting name="fieldWidth">70</setting>
+        	<setting name="fieldHeight">3</setting>
+      	  </settings>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">3</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_work_notes" datatype="Text">
       <labels>
@@ -1557,12 +1556,12 @@
         <restriction code="r_work">
           <table>ca_objects</table>
           <type>work</type>
+           <settings>
+        	<setting name="fieldWidth">70</setting>
+        	<setting name="fieldHeight">3</setting>
+          </settings>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">3</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_mi_date" datatype="DateRange">
       <labels>
@@ -1589,12 +1588,12 @@
         <restriction code="r_manifestation_item">
           <table>ca_objects</table>
           <type>manifestation_item</type>
+          <settings>
+        	<setting name="fieldWidth">70</setting>
+        	<setting name="fieldHeight">1</setting>
+      	  </settings>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">1</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_mi_statement" datatype="Text">
       <labels>
@@ -1607,12 +1606,12 @@
         <restriction code="r_manifestation_item">
           <table>ca_objects</table>
           <type>manifestation_item</type>
+          <settings>
+        		<setting name="fieldWidth">70</setting>
+        		<setting name="fieldHeight">3</setting>
+      	  </settings>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">3</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_mi_other_ids" datatype="Container">
       <labels>
@@ -1621,19 +1620,25 @@
           <description>Identifiers other than the main item number.</description>
         </label>
       </labels>
+      <settings>
+            <setting name="fieldWidth">70</setting>
+            <setting name="fieldHeight">1</setting>
+       </settings>
       <typeRestrictions>
         <restriction code="r_manifestation_item">
           <table>ca_objects</table>
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <elements>
+    </metadataElement>
         <metadataElement code="fiaf_mi_other_id_type" datatype="List" list="fiaf_identifier_types">
           <labels>
             <label locale="en_US">
               <name>Identifier type</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_other_id_value" datatype="Text">
           <labels>
@@ -1641,13 +1646,9 @@
               <name>Identifier value</name>
             </label>
           </labels>
-          <settings>
-            <setting name="fieldWidth">70</setting>
-            <setting name="fieldHeight">1</setting>
-          </settings>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
-      </elements>
-    </metadataElement>
     <metadataElement code="fiaf_mi_gauge" datatype="List" list="fiaf_gauges">
       <labels>
         <label locale="en_US">
@@ -1695,16 +1696,16 @@
           <description>Colour process or system, tinting/toning details.</description>
         </label>
       </labels>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
       <typeRestrictions>
         <restriction code="r_manifestation_item">
           <table>ca_objects</table>
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">3</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_mi_sound" datatype="List" list="fiaf_sound">
       <labels>
@@ -1726,16 +1727,16 @@
           <description>Sound system, number of channels, noise reduction.</description>
         </label>
       </labels>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
       <typeRestrictions>
         <restriction code="r_manifestation_item">
           <table>ca_objects</table>
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">3</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_mi_aspect" datatype="List" list="fiaf_aspect">
       <labels>
@@ -1757,16 +1758,16 @@
           <description>e.g. 24 fps, 18 fps, 25 fps.</description>
         </label>
       </labels>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">1</setting>
+      </settings>
       <typeRestrictions>
         <restriction code="r_manifestation_item">
           <table>ca_objects</table>
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">1</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_mi_generation" datatype="List" list="fiaf_generations">
       <labels>
@@ -1788,19 +1789,22 @@
           <description>Length, reels and running time of this item.</description>
         </label>
       </labels>
+      <settings></settings>
       <typeRestrictions>
         <restriction code="r_manifestation_item">
           <table>ca_objects</table>
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <elements>
+    </metadataElement>
         <metadataElement code="fiaf_mi_len_m" datatype="Numeric">
           <labels>
             <label locale="en_US">
               <name>Length (metres)</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_len_ft" datatype="Numeric">
           <labels>
@@ -1808,6 +1812,8 @@
               <name>Length (feet)</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_reels" datatype="Numeric">
           <labels>
@@ -1815,6 +1821,8 @@
               <name>Number of reels / units</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_duration" datatype="Text">
           <labels>
@@ -1826,6 +1834,7 @@
             <setting name="fieldWidth">70</setting>
             <setting name="fieldHeight">1</setting>
           </settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_extent_note" datatype="Text">
           <labels>
@@ -1837,9 +1846,8 @@
             <setting name="fieldWidth">70</setting>
             <setting name="fieldHeight">3</setting>
           </settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
-      </elements>
-    </metadataElement>
     <metadataElement code="fiaf_mi_languages" datatype="Container">
       <labels>
         <label locale="en_US">
@@ -1853,7 +1861,7 @@
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <elements>
+    </metadataElement>
         <metadataElement code="fiaf_mi_lang" datatype="Text">
           <labels>
             <label locale="en_US">
@@ -1864,6 +1872,7 @@
             <setting name="fieldWidth">70</setting>
             <setting name="fieldHeight">1</setting>
           </settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_lang_use" datatype="List" list="fiaf_language_uses">
           <labels>
@@ -1871,6 +1880,8 @@
               <name>Use</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_lang_note" datatype="Text">
           <labels>
@@ -1882,25 +1893,24 @@
             <setting name="fieldWidth">70</setting>
             <setting name="fieldHeight">1</setting>
           </settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
-      </elements>
-    </metadataElement>
     <metadataElement code="fiaf_mi_tech_notes" datatype="Text">
       <labels>
         <label locale="en_US">
           <name>Technical notes</name>
         </label>
       </labels>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
       <typeRestrictions>
         <restriction code="r_manifestation_item">
           <table>ca_objects</table>
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">3</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_mi_holder" datatype="Text">
       <labels>
@@ -1909,16 +1919,16 @@
           <description>Institution holding this item.</description>
         </label>
       </labels>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">1</setting>
+      </settings>
       <typeRestrictions>
         <restriction code="r_manifestation_item">
           <table>ca_objects</table>
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">1</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_mi_acquisition" datatype="Container">
       <labels>
@@ -1932,13 +1942,15 @@
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <elements>
-        <metadataElement code="fiaf_mi_acq_method" datatype="List" list="fiaf_acquisition">
+    </metadataElement>
+ <metadataElement code="fiaf_mi_acq_method" datatype="List" list="fiaf_acquisition">
           <labels>
             <label locale="en_US">
               <name>Method</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_acq_date" datatype="DateRange">
           <labels>
@@ -1946,6 +1958,8 @@
               <name>Date</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_acq_source" datatype="Text">
           <labels>
@@ -1957,6 +1971,7 @@
             <setting name="fieldWidth">70</setting>
             <setting name="fieldHeight">1</setting>
           </settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_acq_note" datatype="Text">
           <labels>
@@ -1968,25 +1983,24 @@
             <setting name="fieldWidth">70</setting>
             <setting name="fieldHeight">3</setting>
           </settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
-      </elements>
-    </metadataElement>
     <metadataElement code="fiaf_mi_provenance" datatype="Text">
       <labels>
         <label locale="en_US">
           <name>Provenance / custodial history</name>
         </label>
       </labels>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
       <typeRestrictions>
         <restriction code="r_manifestation_item">
           <table>ca_objects</table>
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">3</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_mi_access" datatype="List" list="fiaf_access">
       <labels>
@@ -2014,13 +2028,15 @@
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <elements>
+    </metadataElement>
         <metadataElement code="fiaf_mi_cond_date" datatype="DateRange">
           <labels>
             <label locale="en_US">
               <name>Date examined</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_cond_state" datatype="List" list="fiaf_condition">
           <labels>
@@ -2028,6 +2044,8 @@
               <name>Condition</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_cond_damage" datatype="List" list="fiaf_deterioration">
           <labels>
@@ -2035,6 +2053,8 @@
               <name>Deterioration / damage</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_cond_note" datatype="Text">
           <labels>
@@ -2046,9 +2066,8 @@
             <setting name="fieldWidth">70</setting>
             <setting name="fieldHeight">3</setting>
           </settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
-      </elements>
-    </metadataElement>
     <metadataElement code="fiaf_mi_preservation" datatype="Container">
       <labels>
         <label locale="en_US">
@@ -2061,13 +2080,15 @@
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <elements>
+    </metadataElement>
         <metadataElement code="fiaf_mi_pres_action" datatype="List" list="fiaf_preservation_actions">
           <labels>
             <label locale="en_US">
               <name>Action</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_pres_date" datatype="DateRange">
           <labels>
@@ -2075,6 +2096,8 @@
               <name>Date</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_mi_pres_note" datatype="Text">
           <labels>
@@ -2086,25 +2109,24 @@
             <setting name="fieldWidth">70</setting>
             <setting name="fieldHeight">3</setting>
           </settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
-      </elements>
-    </metadataElement>
     <metadataElement code="fiaf_mi_notes" datatype="Text">
       <labels>
         <label locale="en_US">
           <name>Notes on manifestation / item</name>
         </label>
       </labels>
+      <settings>
+        <setting name="fieldWidth">70</setting>
+        <setting name="fieldHeight">3</setting>
+      </settings>
       <typeRestrictions>
         <restriction code="r_manifestation_item">
           <table>ca_objects</table>
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <settings>
-        <setting name="fieldWidth">70</setting>
-        <setting name="fieldHeight">3</setting>
-      </settings>
     </metadataElement>
     <metadataElement code="fiaf_cat_info" datatype="Container">
       <labels>
@@ -2123,7 +2145,7 @@
           <type>manifestation_item</type>
         </restriction>
       </typeRestrictions>
-      <elements>
+      </metadataElement>
         <metadataElement code="fiaf_cat_cataloguer" datatype="Text">
           <labels>
             <label locale="en_US">
@@ -2134,6 +2156,7 @@
             <setting name="fieldWidth">70</setting>
             <setting name="fieldHeight">1</setting>
           </settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_cat_date" datatype="DateRange">
           <labels>
@@ -2141,6 +2164,8 @@
               <name>Date of cataloguing</name>
             </label>
           </labels>
+          <settings></settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_cat_rules" datatype="Text">
           <labels>
@@ -2153,6 +2178,7 @@
             <setting name="fieldHeight">1</setting>
             <setting name="default_text">FIAF Moving Image Cataloguing Manual (2016)</setting>
           </settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
         <metadataElement code="fiaf_cat_note" datatype="Text">
           <labels>
@@ -2164,9 +2190,8 @@
             <setting name="fieldWidth">70</setting>
             <setting name="fieldHeight">3</setting>
           </settings>
+          <typeRestrictions></typeRestrictions>
         </metadataElement>
-      </elements>
-    </metadataElement>
   </elementSets>
   <userInterfaces>
     <userInterface code="fiaf_work_editor" type="ca_objects">
@@ -2183,10 +2208,7 @@
             </label>
           </labels>
           <typeRestrictions>
-            <restriction code="r_work">
-              <table>ca_objects</table>
-              <type>work</type>
-            </restriction>
+			 <restriction type="work"/>
           </typeRestrictions>
           <bundlePlacements>
             <placement code="p4">
@@ -2230,17 +2252,14 @@
             </placement>
           </bundlePlacements>
         </screen>
-        <screen idno="w_credits">
+        <screen idno="w_credits" default="0">
           <labels>
             <label locale="en_US">
               <name>Credits</name>
             </label>
           </labels>
           <typeRestrictions>
-            <restriction code="r_work">
-              <table>ca_objects</table>
-              <type>work</type>
-            </restriction>
+            <restriction type="r_work"></restriction>
           </typeRestrictions>
           <bundlePlacements>
             <placement code="p14">
@@ -2258,17 +2277,14 @@
             </placement>
           </bundlePlacements>
         </screen>
-        <screen idno="w_description">
+        <screen idno="w_description" default="0">
           <labels>
             <label locale="en_US">
               <name>Description</name>
             </label>
           </labels>
           <typeRestrictions>
-            <restriction code="r_work">
-              <table>ca_objects</table>
-              <type>work</type>
-            </restriction>
+            <restriction code="r_work" type="work"></restriction>
           </typeRestrictions>
           <bundlePlacements>
             <placement code="p17">
@@ -2294,17 +2310,14 @@
             </placement>
           </bundlePlacements>
         </screen>
-        <screen idno="w_relations">
+        <screen idno="w_relations" default="0">
           <labels>
             <label locale="en_US">
               <name>Relationships</name>
             </label>
           </labels>
           <typeRestrictions>
-            <restriction code="r_work">
-              <table>ca_objects</table>
-              <type>work</type>
-            </restriction>
+            <restriction code="r_work" type="work"></restriction>
           </typeRestrictions>
           <bundlePlacements>
             <placement code="p22">
@@ -2321,17 +2334,14 @@
             </placement>
           </bundlePlacements>
         </screen>
-        <screen idno="w_admin">
+        <screen idno="w_admin" default="0">
           <labels>
             <label locale="en_US">
               <name>Cataloguing</name>
             </label>
           </labels>
           <typeRestrictions>
-            <restriction code="r_work">
-              <table>ca_objects</table>
-              <type>work</type>
-            </restriction>
+            <restriction code="r_work" type="work"></restriction>
           </typeRestrictions>
           <bundlePlacements>
             <placement code="p1">
@@ -2367,10 +2377,7 @@
             </label>
           </labels>
           <typeRestrictions>
-            <restriction code="r_manifestation_item">
-              <table>ca_objects</table>
-              <type>manifestation_item</type>
-            </restriction>
+            <restriction code="r_manifestation_item" type="manifestation_item"></restriction>
           </typeRestrictions>
           <bundlePlacements>
             <placement code="p24">
@@ -2402,17 +2409,14 @@
             </placement>
           </bundlePlacements>
         </screen>
-        <screen idno="mi_publication">
+        <screen idno="mi_publication" default="0">
           <labels>
             <label locale="en_US">
               <name>Publication / distribution</name>
             </label>
           </labels>
           <typeRestrictions>
-            <restriction code="r_manifestation_item">
-              <table>ca_objects</table>
-              <type>manifestation_item</type>
-            </restriction>
+            <restriction code="r_manifestation_item" type="manifestation_item"></restriction>
           </typeRestrictions>
           <bundlePlacements>
             <placement code="p29">
@@ -2433,17 +2437,14 @@
             </placement>
           </bundlePlacements>
         </screen>
-        <screen idno="mi_technical">
+        <screen idno="mi_technical" default="0">
           <labels>
             <label locale="en_US">
               <name>Carrier / technical</name>
             </label>
           </labels>
           <typeRestrictions>
-            <restriction code="r_manifestation_item">
-              <table>ca_objects</table>
-              <type>manifestation_item</type>
-            </restriction>
+            <restriction code="r_manifestation_item" type="manifestation_item"></restriction>
           </typeRestrictions>
           <bundlePlacements>
             <placement code="p33">
@@ -2484,17 +2485,14 @@
             </placement>
           </bundlePlacements>
         </screen>
-        <screen idno="mi_holdings">
+        <screen idno="mi_holdings" default="0">
           <labels>
             <label locale="en_US">
               <name>Item holdings</name>
             </label>
           </labels>
           <typeRestrictions>
-            <restriction code="r_manifestation_item">
-              <table>ca_objects</table>
-              <type>manifestation_item</type>
-            </restriction>
+            <restriction code="r_manifestation_item" type="manifestation_item"></restriction>
           </typeRestrictions>
           <bundlePlacements>
             <placement code="p45">
@@ -2517,17 +2515,14 @@
             </placement>
           </bundlePlacements>
         </screen>
-        <screen idno="mi_condition">
+        <screen idno="mi_condition" default="0">
           <labels>
             <label locale="en_US">
               <name>Condition / preservation</name>
             </label>
           </labels>
           <typeRestrictions>
-            <restriction code="r_manifestation_item">
-              <table>ca_objects</table>
-              <type>manifestation_item</type>
-            </restriction>
+            <restriction code="r_manifestation_item" type="manifestation_item"></restriction>
           </typeRestrictions>
           <bundlePlacements>
             <placement code="p50">
@@ -2538,17 +2533,14 @@
             </placement>
           </bundlePlacements>
         </screen>
-        <screen idno="mi_admin">
+        <screen idno="mi_admin" default="0">
           <labels>
             <label locale="en_US">
               <name>Notes / cataloguing</name>
             </label>
           </labels>
           <typeRestrictions>
-            <restriction code="r_manifestation_item">
-              <table>ca_objects</table>
-              <type>manifestation_item</type>
-            </restriction>
+            <restriction code="r_manifestation_item" type="manifestation_item"></restriction>
           </typeRestrictions>
           <bundlePlacements>
             <placement code="p52">
@@ -2864,10 +2856,7 @@
         </label>
       </labels>
       <typeRestrictions>
-        <restriction code="r_work">
-          <table>ca_objects</table>
-          <type>work</type>
-        </restriction>
+        <restriction code="r_work" type="work"></restriction>
       </typeRestrictions>
       <bundlePlacements>
         <placement code="p53">
@@ -2909,10 +2898,7 @@
         </label>
       </labels>
       <typeRestrictions>
-        <restriction code="r_manifestation_item">
-          <table>ca_objects</table>
-          <type>manifestation_item</type>
-        </restriction>
+        <restriction code="r_manifestation_item" type="manifestation_item"></restriction>
       </typeRestrictions>
       <bundlePlacements>
         <placement code="p58">
