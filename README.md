@@ -1,6 +1,6 @@
 # Collective Access - FIAF Cataloging Rules (2016)
 
-This Github repository contains files for managing a moving image collection using Collective Access and cataloging rules as described in [The FIAF Moving Image Cataloging Manual (2016)](https://www.fiafnet.org/pages/e-resources/cataloguing-manual.html)
+This Github repository contains files for managing a moving image collection using Collective Access and cataloging rules as described in [The FIAF Moving Image Cataloging Manual (2016)](https://www.fiafnet.org/pages/e-resources/cataloguing-manual.html).
 
 ## About
 
