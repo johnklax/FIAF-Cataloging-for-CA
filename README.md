@@ -15,7 +15,7 @@ This profile was written for [Collective Access 2.0.11](https://collectiveaccess
 Instructions for installing CA with an external profile are available in [CA's documentation](https://docs.collectiveaccess.org/providence/user/dataModelling/profiles/).
 
 ## Status
-Currently untested.
+In development and testing.
 
 ## Contact
 * John Klacsmann, Archivist [Anthology Film Archives](http://www.anthologyfilmarchives.org)
