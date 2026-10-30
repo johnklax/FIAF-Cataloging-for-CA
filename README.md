@@ -12,7 +12,9 @@ Model (Manual section 0.2.1, "Shallow hierarchy model: 2 levels"):
 * __Manifestation data__ = "crossover data held in either level or both levels": elements restricted to BOTH work_like and item_like.
 * The optional __Variant__ entity is not used.
 
-_Both tiers are ca_objects. Item-like records are created as children of Work-like records._
+_Both tiers are ca_objects. Item-like records are created as children of Work-like records. The profile doesn’t enforce this. In CA that is a configuration setting (app.conf), not part of the profile._
+
+_The XML profile file declares base="base", so the standard "base.xml" file has to be present in your installation’s profile directory (ca/install/profiles/xml)._
 
 ## Collective Access Installation Profile
 This profile was written for [Collective Access 2.0.11](https://collectiveaccess.org/) (CA). 
