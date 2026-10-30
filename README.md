@@ -6,6 +6,7 @@ This Github repository contains files for managing a moving image collection usi
 This setup is currently being developed at [Anthology Film Archives](http://www.anthologyfilmarchives.org) for use as a central cataloging database for our moving image collections. The goal is to develop a two-level hierarchy (Work/Variant and Manifestation/Item) profile that follows the cataloging standards as described in [The International Federation of Film Archives's](http://fiafnet.org) [Moving Image Cataloguing Manual (2016)](https://www.fiafnet.org/pages/e-resources/cataloguing-manual.html) as closely as possible.
 
 ## Structure
+![2-level hierarchy model from cataloging manual](images/2-level-hierarchy-model.jpg)
 Model (Manual section 0.2.1, "Shallow hierarchy model: 2 levels"):
 * __Tier 1  work_like  = Work-like:__ abstract entity, with some context
 * __Tier 2  item_like  = Item-like:__ physical or digital object, with some context
