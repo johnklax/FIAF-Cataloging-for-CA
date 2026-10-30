@@ -19,7 +19,7 @@ _Both tiers are ca_objects. Item-like records are created as children of Work-li
 _The XML profile file declares base="base", so the standard "base.xml" file has to be present in your installation’s profile directory (ca/install/profiles/xml)._
 
 ## Collective Access Installation Profile
-This profile was written for [Collective Access 2.0.11](https://collectiveaccess.org/) (CA). 
+This profile was written for [Collective Access 2.0.11](https://github.com/collectiveaccess/providence/releases/tag/2.0.11) (CA). 
 Instructions for installing CA with an external profile are available in [CA's documentation](https://docs.collectiveaccess.org/providence/user/dataModelling/profiles/).
 
 ## Status
