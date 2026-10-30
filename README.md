@@ -7,9 +7,9 @@ This setup is currently being developed at [Anthology Film Archives](http://www.
 
 ## Structure
 Model (Manual section 0.2.1, "Shallow hierarchy model: 2 levels"):
-* Tier 1  work_like  = Work-like: abstract entity, with some context
-* Tier 2  item_like  = Item-like: physical or digital object, with some context
-    * Manifestation data = "crossover data held in either level or both levels": elements restricted to BOTH work_like and item_like.
+* __Tier 1  work_like  = Work-like:__ abstract entity, with some context
+* __Tier 2  item_like  = Item-like:__ physical or digital object, with some context
+    * __Manifestation data__ = "crossover data held in either level or both levels": elements restricted to BOTH work_like and item_like.
 * The optional Variant entity is not used.
 
 _Both tiers are ca_objects. Item-like records are created as children of Work-like records._
